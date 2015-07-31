@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Other";
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Other</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "AboutMe", "Home")</li>
+                        <li class="active">Other</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <h2 class="headline first-child text-color">
+                    <span class="border-color">Some Other Things About Me</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="services-item">
+                <i class="fa fa-gear fa-2x text-color"></i>
+                <div class="services-item-desc">
+                    <h3 class="primary-font">I love sushi!</h3>
+                    <p class="text-muted">
+                        <ul>
+                            <li>My favorite sushi place is <a target="_blank" href="http://www.sushiyaorem.com/">Sushi Ya</a>, an all-you-can-eat <em>very good</em> restaurant in Orem, UT</li>
+                            <li>It's a quick 2,050 miles from Charlotte (just 29 hours without traffic!)</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="services-item">
+                <i class="fa fa-gear fa-2x text-color"></i>
+                <div class="services-item-desc">
+                    <h3 class="primary-font">I have six brothers and seven sisters</h3>
+                    <p class="text-muted">
+                        <ul>
+                            <li>Two brothers are both named <em>David</em></li>
+                            <li>And two sisters are both named <em>Debbie</em></li>
+                            <li>It works: we call them <em>Dave</em> and <em>David</em>, and <em>Debbie</em> and <em>Liza</em></li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="services-item">
+                <i class="fa fa-gear fa-2x text-color"></i>
+                <div class="services-item-desc">
+                    <h3 class="primary-font">I was the Executive Producer of the 2007 movie <cite>Believe</cite></h3>
+                    <p class="text-muted">
+                        <ul>
+                            <li><cite>Believe</cite> is a mockumentary, makes fun of the multi-level-marketing industry</li>
+                            <li>I have a cameo in the movie</li>
+                            <li>My car (a black <a target="_blank" href="http://www.edmunds.com/cadillac/cts-v/2004/consumer-reviews/">2004 Cadillac CTS-V</a>) appears in the movie twice!</li>
+                            <li>
+                                See the listing at <a target="_blank" href="http://www.imdb.com/title/tt0447857/fullcredits?ref_=tt_ov_st_sm">
+                                    <img src="~/img/imdb.ico" style="width:40px;height:30px;" />
+                                </a> (note that the Eric Ruff in the listing is not me and is not related to me)
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- wrapper -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuOther").addClass("active");
+        });
+    </script>
+}
+

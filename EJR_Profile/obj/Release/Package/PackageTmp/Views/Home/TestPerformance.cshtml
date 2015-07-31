@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "TestPerformance";
+}
+
+<div class="container">
+    <h1>JavaScript Performance Tests</h1>
+    <h2>Filter Alpha Chars: Regex vs Manual Code</h2>
+    <h3>Requirements:</h3>
+    <div class="row">
+        <div class="col-sm-5">
+            <p>
+                Compare the speed of regex code with a manual implementation that inspects each character of the original string and
+                replaces it with a space if not alphabetic, otherwise keeps the original characters. Timing results will be in msecs.
+            </p>
+            <p>
+                The regex expression to compare against is the following: <var>var words = strTarget.split(/\W+/);</var>
+            </p>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-2 text-right">
+            <h4># Iterations:</h4>
+        </div>
+        <div class="col-sm-1">
+            <input type="txt" id="iterations1" placeholder="# loop iterations" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 text-right">
+            <h4>String size:</h4>
+        </div>
+        <div class="col-sm-1">
+            <input type="txt" id="strSize1" placeholder="# chars to test" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 text-right">
+            <h4>Sample text:</h4>
+        </div>
+        <div class="col-sm-3">
+            <textarea id="txt1" rows="4" cols="40" placeholder="Enter sample text here. if the desired size is smaller than this, the text will be truncated. if larger, this sample text will be duplicated until it matches the desired size" "></textarea>
+        </div>
+    </div>
+    <br />
+    <div class="center">
+        <div class="col-sm-5">
+            <div class="row">
+                <button class="btn btn-primary center-block" id="Result1-2" onclick="TestRegex()">
+                    Start Test
+                </button>
+            </div>
+            <div class="row">
+                <h4>Results</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function TestRegex() {
+    // Test speed of regex compared to manual code
+    // First, prepare the string, then start the clock
+    var c = document.getElementById("iterations1").value.trim();
+    var x = document.getElementById("strSize1").value.trim();
+    var sample = document.getElementById("txt1").value;
+    var size = parseInt(x,10);
+    if (isNaN(size) || (size < 2)) {
+        alert("Please specify an integer size greater than 1");
+        return;
+    }
+    var count = parseInt(c, 10);
+    if (isNaN(count) || (count < 2)) {
+        alert("Please specify an iteration count greater than 1");
+        return;
+    }
+
+    // Adjust the target string to equal exactly the desired size
+    var target = MakeString(sample, size);
+    if (target.length < size)
+        alert("Problem here!");
+
+    // We now have a string of the proper length, so do the test
+    var dateRegex = new Date();
+    var i = 0;
+    var words = [];
+    for (i = 0; i < count; i++)
+        words = target.split(/\W+/);
+
+    // Compare against our code of splitting out chars via JavaScript code...
+    var dateJcode = new Date();
+    var c = "";
+    var j = 0;
+    var z = "";
+    var sCount = target.length;
+    var start = 0;
+    for (i = 0; i < count; i++) {
+        // Now, process the string...
+        z = "";
+        j = 0;
+        words = [];
+
+        // Find first alphanumeric...
+        while (true) {
+            // Find first alphanumeric
+            c = target.charAt(j);
+            while ((j < sCount) && !((c >= "A" && c <= "Z") || (c >= "a" && c <= "z") || (c >= "0" && c <= "9")))
+                c = target.charAt(j++);
+            if (j < sCount) {
+                start = j++;      // remember start position
+                do {
+                    c = target.charAt(j++);
+                } while ((j <= sCount) && ((c >= "A" && c <= "Z") || (c >= "a" && c <= "z") || (c >= "0" && c <= "9")));
+                // We got another word
+                words.push(target.slice(start, j-1));
+            }
+            else break;
+        }
+    }
+    var dateEnd = new Date();
+    var elapsedRegex = dateJcode - dateRegex;
+    var elapsedJcode = dateEnd - dateJcode;
+    c = "1";
+
+}
+function MakeString(str, size) {
+    // str is the text sample
+    // size is the desired size
+    // Keep doubling until str.length >= desired size
+    var s = str.slice(0);
+    while (size > s.length)
+        s += s;
+    // Now extract the proper portion
+    return s.slice(0, size);
+
+
+    var words = string.split(/\W+/);
+
+
+
+}
+
+
+
+</script>
+
+@section Scripts {
+
+
+    </script>
+}

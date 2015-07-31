@@ -1,0 +1,1614 @@
+﻿@{
+    ViewBag.Title = "JS_Exercises";
+}
+@* ToDo List
+    - Make alerts prettier; consider Bootbox.js (http://bootboxjs.com/#getting-started)
+        - Or, consider: http://blog.raventools.com/create-a-modal-dialog-using-css-and-javascript/
+        - Or: http://www.hongkiat.com/blog/html5-dialog-window/
+    - Swap out videos, figure out which pictures to use (ask Ashley)
+    - Prettify resume
+        - make elements collapsible
+        - consider timeline
+        - condense
+        - make more appropriate for executive position
+        - reformat all elements
+        - add links to Gazelle and PowerQuest, show collection of various articles and reviews
+    - Consider two versions of my resume
+        - one for developer job
+        - one for CEO / startup
+        - maybe even consider two versions of my website
+    - Add to Performance link:
+        - Compare speed of regex with JavaScript code
+            - Speed of modifying a small string
+            - Speed of modifying a large string (100k? 1MB? bigger?)
+        - In C#:
+            - speed of lambda vs. equivalent foreach loop
+            - speed of getting/setting plain field vs. property w/ get/set
+        - Speed of using / not using 'var' declaration
+        - Speed of quicksort vs radix sort
+        - Speed of pow() function relative to x*x or x*x*x
+        - Speed of same solution in JavaScript vs. C# vs Assembly Language
+        - NumberGun technology
+*@
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">JavaScript Exercises</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">JavaScript Exercises</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="headline first-child text-color">
+                    <span class="border-color">JavaScript Coding Exercises</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group btn-color btn-group-justified" role="group" aria-label="...">
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex1-1">Max of Five</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex1-2">Sum and Multiply</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex1-3">Factorial</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex1-4">Palindrome</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group btn-color btn-group-justified" role="group" aria-label="...">
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex1-5">FizzBuzz</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-1">Perfect Numbers</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-2">Happy Numbers</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-3">Armstrong Numbers</a>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group btn-color btn-group-justified" role="group" aria-label="...">
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-4">Longest Word</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-5">Long Words</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-6">Word Frequency</a>
+                    <a class="btn btn-lg btn-color" href="" data-toggle="modal" data-target="#Ex2-7">Find Word</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- wrapper -->
+
+<!-- Exercise 1-1 -->
+<div class="modal fade" id="Ex1-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish11()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Max of Five</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class=" panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Max of Five</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <!-- Everything is in one row, divided into two cols -->
+                                <div class="col-md-5">
+                                    <!-- This is the col for the explanation and input fields-->
+                                    <h3>Requirement:</h3>
+                                    <p>Define a function <var>maxOfFive()</var> that takes five numbers as arguments and returns the largest of them.</p>
+                                    <br />
+                                    <div class="center">
+                                        <h4>Enter five numbers:</h4>
+                                        <input type="text" id="Num1-11" size=3 maxlength="10" value="1" class="text-center">
+                                        <input type="text" id="Num1-12" size=3 maxlength="10" value="2" class="text-center">
+                                        <input type="text" id="Num1-13" size=3 maxlength="10" value="3" class="text-center">
+                                        <input type="text" id="Num1-14" size=3 maxlength="10" value="4" class="text-center">
+                                        <input type="text" id="Num1-15" size=3 maxlength="10" value="5" class="text-center">
+                                    </div>
+                                    <br />
+                                    <h4 class="text-center">Click to see largest number:</h4>
+                                    <button class="btn btn-primary center-block" name="Result1-1" id="Result1-1" onclick="calculate()">
+                                        ???
+                                    </button>
+                                </div>
+                                <div class="col-md-7">
+                                    <!-- This is the col for the source code -->
+                                    <div class="pre">
+                                        <pre class="brush: js">
+<script type="text/javascript">
+function calculate() {
+    var src = [];
+    var index = "";
+    var i = 0;
+    for (i = 0; i < 5; i++) {
+        index = "Num1-1" + (i + 1);
+        var val = document.getElementById(index).value;
+        src[i] = parseFloat(val);
+    }
+    // Now, get max value
+    var max;
+    for (i = 0; i < 5; i++) {
+        if (!isNaN(src[i])) {
+            if (typeof max === "undefined") {
+                // This is the first valid number, so set max equal to it
+                max = src[i];
+            }
+            else {
+                if (src[i] > max)
+                    max = src[i];
+            }
+        }
+    }
+    // And update the max value
+    var x = document.getElementById("Result1-1");
+    x.innerHTML = typeof max === "undefined" ?
+        "No valid numbers -- answer undefined" :
+        max.toString();
+}
+</script>
+                                    </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Insert exercise code here!-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer no-margin hidden">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish11()">×</button>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 1-2 -->
+<div class="modal fade" id="Ex1-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish12()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Sum and Multiply</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sum and Multiply</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <h3>Requirement:</h3>
+                                    <p>Define a function <var>sum()</var> and a function <var>multiply()</var> that sums and multiplies (respectively) all the numbers in an array of numbers.</p>
+                                    <br />
+                                    <div class="center">
+                                        <h4>Enter five numbers:</h4>
+                                        <input type="text" id="Num1-21" size=3 maxlength="10" value="1" class="text-center">
+                                        <input type="text" id="Num1-22" size=3 maxlength="10" value="2" class="text-center">
+                                        <input type="text" id="Num1-23" size=3 maxlength="10" value="3" class="text-center">
+                                        <input type="text" id="Num1-24" size=3 maxlength="10" value="4" class="text-center">
+                                        <input type="text" id="Num1-25" size=3 maxlength="10" value="5" class="text-center">
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <h4 class="text-center">Click to see sum and product:</h4>
+                                    <br />
+                                    <button class="btn btn-primary center-block" id="Result1-2" onclick="doSumAndMultiply()">
+                                        ???
+                                    </button>
+                                    <br />
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-2 text-right">
+                                            <h4>Sum:</h4>
+                                        </div>
+                                        <div class="col-md-2 col-md-offset-2">
+                                            <input type="text" id="sum12" readonly class="text-center">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4>Product:</h4>
+                                        </div>
+                                        <div class="col-md-2 col-md-offset-2 ">
+                                            <input type="text" id="product12" readonly class="text-center">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+    function sum(aVals) {
+        // aVals is an array of numbers to sum...
+        // Some entries could be NaN, so catch and skip over them!
+        var len = aVals.length;
+        var i = -1, sum = 0;
+        while (++i < len) {
+            if (!isNaN(aVals[i]))
+                sum += aVals[i];
+        }
+        return sum;
+    }
+    function multiply(aVals) {
+        // aVals is an array of numbers to multiply...
+        // Some entries could be NaN, so catch and skip over them!
+        var len = aVals.length;
+        var i = -1;
+        var prod;
+        while (++i < len) {
+            if (!isNaN(aVals[i])) {
+                if (typeof prod === "undefined")
+                    prod = aVals[i];
+                else prod *= aVals[i];
+            }
+        }
+        return prod;
+    }
+    function doSumAndMultiply() {
+        var src = [];
+        var index = "";
+        var i = 0;
+        for (i = 0; i < 5; i++) {
+            index = "Num1-2" + (i + 1);
+            var val = document.getElementById(index).value;
+            src[i] = parseFloat(val);
+        }
+
+        // Now, get the sum and the product...
+        var sumTotal = sum(src);
+        var productTotal = multiply(src);
+
+        // And update the display...
+        $("#sum12").val(sumTotal);
+        $("#product12").val(productTotal);
+        //var x = document.getElementById("Result1-2");
+        //x.innerHTML = "The total is " + sumTotal +
+        //    " and the product is " + productTotal;
+    }
+</script>
+                                        </pre>
+                                </div>
+                                <!-- Insert exercise code here!-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer no-margin hidden">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 1-3 -->
+<div class="modal fade" id="Ex1-3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish13()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Factorial</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Factorial</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Insert exercise code here!-->
+                                    <h3>Requirement:</h3>
+                                    <p>Write a program that calculates the factorial of a number. 
+                                    The factorial of a non-negative integer <var>n</var> is the product of 
+                                    all positive integers less than or equal to <var>n</var>. (i.e. 5! = 5 x 4 x 3 x 2 x 1 = 120).</p>
+                                    <p>
+                                        <em>Note: any number greater than 170 will return '<var>Infinity</var>'.</em>
+                                    <p>
+                                    <br />
+                                    <div class="center">
+                                        <h4>Enter a number:</h4>
+                                        <input type="text" id="Num1-3" size=3 maxlength="10" value="7" class="text-center center-block">
+                                        <br />
+                                        <h4>Click to see factorial of number:</h4>
+                                        <br />
+                                        <button class="btn btn-primary center-block" id="Result1-3" onclick="doFactorial()">
+                                            ???
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function factorial(num) {
+    // Compute the factorial of num
+    if (isNaN(num))
+        return 0;
+    if (num < 0)
+        return 0;
+
+    var fact = num;
+    while (--num > 1)
+        fact *= num;
+    return fact;
+}
+function doFactorial() {
+    // Get text, make sure it's a valid integer
+    // If so, compute factorial
+    var val = document.getElementById("Num1-3").value.trim();
+
+    // If decimal point, don't do it
+    var result = 0;
+    if (val.indexOf(".") == -1) {
+        var iNum = parseInt(val);
+        if (!isNaN(iNum) && (iNum.toString() === val))
+            // Result1-3 appears to be valid
+            result = factorial(iNum);
+    }
+    // Display result
+    var x = document.getElementById("Result1-3");
+    x.innerHTML = result == 0 ?
+        "You must enter a valid positive integer (no decimal places, either!)." :
+        "The answer: " + val + "! = " + result;
+}
+</script>
+</pre>
+                                    <!-- Insert exercise code here!-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 1-4 -->
+<div class="modal fade" id="Ex1-4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish14()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Palindrome</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Palindrome</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>Define a function <var>palindrome()</var> that computes the reversal of a string, returning true if the string is a palindrome (the same forwards and backwards – “radar” for example), and false if otherwise.</p>
+                                    <br />
+                                    <div class="center">
+                                        <h4>Enter a string:</h4>
+                                        <input type="text" id="String1-4" value="radar" class="text-left">
+                                    </div>
+                                    <br />
+                                    <h4 class="text-center">Click to if string is palindrome:</h4>
+                                    <button class="btn btn-primary center-block" id="Result1-4" onclick="checkPalindrome()">
+                                        ???
+                                    </button>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function palindrome(str) {
+    // Return true if str is a palindrome, else return false
+    var pStr = str.toUpperCase();
+    var len = pStr.length;
+    if (len == 0)
+        return false;
+
+    // Create reversed string...
+    var newStr = "";
+    for (i = len - 1; i >= 0; i--)
+        newStr += pStr[i];
+    return pStr === newStr ? true : false;
+}
+
+function checkPalindrome() {
+    // Get text, make sure it's a valid integer
+    // If so, compute factorial
+    var val = document.getElementById("String1-4").value;
+    var result = palindrome(val);
+
+    // Update result...
+    var x = document.getElementById("Result1-4");
+    x.innerHTML = result == 0 ?
+        "FALSE: the string is not a palindrome" :
+        "TRUE: the string is a palindrome";
+}
+function changed() {
+    document.getElementById("Result1-4").innerHTML = "???";
+}
+
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer no-margin hidden">
+            </div>
+            </div>
+    </div>
+</div>
+
+<!-- Exercise 1-5 -->
+<div class="modal fade" id="Ex1-5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish15()">×</button>
+                <h1 class="modal-title" id="myModalLabel">FizzBuzz</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">FizzBuzz</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>Write a program that iterates the integers from 1 to 100, printing the numbers to the screen. For each number that is a multiple of three, however, print "Fizz" instead of the number. For multiples of five print "Buzz" instead of the number. For numbers that are multiples of both three and five print "FizzBuzz."</p>
+                                    <br />
+                                    <h4 class="text-center">Click to start 'FizzBuzz':</h4>
+                                    <button class="btn btn-primary center-block" onclick="doFizzBuzz()">
+                                        FizzBuzz
+                                    </button>
+                                    <p id="Result1-5">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </p>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function doFizzBuzz(str) {
+    // Create 100 lines of input according to FizzBuzz logic...
+    var str = "";
+    var fbStr = "";
+    for (i = 1; i < 101; i++) {
+        fbStr = "";
+        if ((i % 3) == 0)
+            fbStr += "Fizz";
+        if ((i % 5) == 0)
+            fbStr += "Buzz";
+        if (fbStr.length == 0)
+            fbStr = i.toString();
+        str += fbStr + " &nbsp;";
+    }
+
+    // Now, output the string...
+    var x = document.getElementById("Result1-5");
+    x.innerHTML = str;
+}
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-1 -->
+<div class="modal fade" id="Ex2-1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish21()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Perfect Numbers</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Perfect Numbers</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        A perfect number is a positive integer equal
+                                        to the sum of its proper positive divisors, i.e., the sum of its positive
+                                        divisors excluding the number itself. The first perfect number is 6 –
+                                        its positive divisors (excluding itself) are 1, 2, and 3, whose sum is 6.
+                                    </p>
+                                    <p>
+                                        - Write a function that determines whether a given number is ‘perfect.’
+                                    </p>
+                                    <p>
+                                        - Write a function to display all perfect numbers between 1 and 10,000.
+                                    </p>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h4>Enter a number:</h4>
+                                        </div>
+                                        <div class="col-sm-3 col-sm-offset-1">
+                                            <input type="text" id="txt21" size=6 maxlength="12" value="" class="text-center" />
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-sm-7">
+                                            <button class="btn btn-primary" onclick="checkIfPerfect()">
+                                                Is number perfect?
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-1">
+                                        </div>
+                                        <div class="col-sm-2" id="isItPerfect21">
+                                            ???
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="center">
+                                        <button class="btn btn-primary" onclick="checkPerfect()">
+                                            Display Perfect Numbers
+                                        </button>
+                                        <button class="btn btn-info" onclick="ShowAlgo()">
+                                            Show Algorithm
+                                        </button>
+                                    </div>
+
+                                    <p id="Result2-1">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </p>
+                                </div>
+                                <dialog id="Algorithm2-1" style="width: 600px">
+                                    <h2>Faster Proper-Number Algorithm</h2>
+                                    <h4>Algorithm created by Eric J. Ruff - July 6, 2015</h4>
+                                    <p>
+                                        There is a MUCH faster method to identify Perfect Numbers. The following results were obtained running on an Intel i7 quadcore 2.60Ghz processor:
+                                        10,000 numbers in 0.005 secs;
+                                        100,000 numbers in 0.095 secs; and
+                                        1,000,000 numbers in 2.650 secs.
+
+                                        This function quickly eliminates divisors that need not be checked; it also recognizes that when a proper divisor is found, two are actually found. In practice, this eliminates around 98% of the numbers that would otherwise be tested.
+                                    </p>
+                                    <p>As an example, consider testing the value 120 for proper positive divisors ('proper divisors' hereafter). Start with <var>pDiv</var> equal to 2 (note that 1 is always a proper divisor, and starts the list). Since 120 / <var>pDiv</var> = 60, both 2 and 60 are proper divisors (when a proper divisor is found, its related quotient is also a proper divisor). At this point, it can be shown mathematically that any value greater than 60 cannot be a proper divisor of 120; all such values can be skipped without testing.</p>
+                                    <p><var>pDiv</var> is incremented by 1 after each test (<var>pDiv</var> will next be equal to 3). It is determined that 120 / <var>pDiv</var> = 40, meaning that both 3 and 40 are also proper divisors. This informs that all numbers greater than 40 can now be excluded and need not be tested.</p>
+                                    <p>In this algorithm, all possible divisors are quickly tested, therefore mathematically eliminating many number ranges that need not be tested. The algorithm ends once <var>pDiv</var> and the quotient converge.</p>
+                                    <p>As the algorithm continues to iterate, it is discovered that 4 and 30, 5 and 24, and 6 and 20, are also proper divisors. But since 120 / 7 = 17 (using integer arithmetic), neither 7 nor 17 is a perfect divisor. But 8 and 15 are; 9 and 13 are not; and 10 and 12 are. When <var>pDiv</var> equals 11, integer math shows that 120 / 11 = 10, so 11 is not a proper divisor. And since <var>pDiv</var> is now less than the quotient, the algorithm ends. (Special case: when <var>pDiv</var> and the quotient are the same, only one of them is added to the list of proper divisors.)</p>
+                                    <p>The proper divisors we found (1, 2, 60, 3, 40, 4, 30, 5, 24, 6, 20, 8, 15, 10, 12) sum to 240. Since this does not equal the original number 120, it is not a perfect number.</p>
+                                    <p>In the above example, only 10 numbers needed to be tested (2 through 11), and 15 proper divisors were found. In the naive implementation, 100 numbers would have been tested. When testing the value 10,000 for proper divisors, only 99 numbers will need to be tested.</p>
+                                </dialog>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+    var nDivisors = 0;
+    function isPerfect(num) {
+        // Return true if num is perfect, else false
+        var pDiv = 2;
+        var q = 0, sum = 1;   // 1 is always a proper positive divisor, so remember it
+        while (true) {
+            //nDivisors++;
+            q = ~~(num / pDiv);  // same as q = num % pDiv
+            if (q > pDiv) {
+                // Quotient is not yet finished, so continue
+                if (q * pDiv == num)
+                    sum += q + pDiv;
+                pDiv++;
+            }
+            else {
+                // pDiv and q have converged, so time to quit
+                if ((q == pDiv) && (q * pDiv == num))
+                    sum += q;
+                break;
+            }
+        }
+        return sum == num ? true : false;
+    }
+    function checkIfPerfect() {
+        var x = $("#txt21").val();
+        x = parseFloat(x);
+        if (!isNaN(x)) {
+            x = isPerfect(x) ? "Yes" : "No";
+            $("#isItPerfect21").text(x);
+        } else {
+            alert("Please enter a valid number");
+        }
+    }
+    function checkPerfect() {
+        // Check all numbers from 0 to 10,000
+        // Assumes the lowest number to test is 2
+        var x = document.getElementById("Result2-1");
+        x.innerHTML = "<br/>";
+        var start = new Date();
+        var i = 1;
+        var lastNum = 10001;
+        nDivisors = 0;
+        while (++i < lastNum) {
+            // We can skip 1, since it cannot be perfect. Although it is known that the first perfect number
+            // is 6, we won't cheat by starting higher!
+            if (isPerfect(i))
+                x.innerHTML += i.toString() + "<br/>";
+        }
+        var elapsed = new Date() - start;;
+        x.innerHTML += "<br/>Elapsed time to process " + (lastNum - 1).toString() + " numbers: " + elapsed + " msecs";
+        //x.innerHTML += "<br/>Scanned " + nDivisors + " divisors";
+    }
+    function ShowAlgo() {
+        // Display the algorithm
+        document.getElementById("Algorithm2-1").showModal();
+
+    }
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer no-margin hidden">
+        </div>
+    </div>
+</div>
+
+
+<!-- Exercise 2-2 -->
+<div class="modal fade" id="Ex2-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish22()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Happy Numbers</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Happy Numbers</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a program to display the first 5 Happy Numbers. Happy numbers are those that can be reduced to 1 through the following process – Start with any positive integer, replace the number with the sum of the squares of its digits, and repeat until the result is 1 or the result is an endless loop.
+                                    </p>
+                                    <br />
+                                    <div class="center">
+                                        <button class="btn btn-primary" onclick="checkHappy()">
+                                            Display Happy Numbers
+                                        </button>
+                                    </div>
+                                    <p id="Result2-2">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </p>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function isHappy(num) {
+    // Return true if num is happy, else false
+    // Determine if in infinite loop...
+
+    // See http://mathworld.wolfram.com/HappyNumber.html and http://oeis.org/A039943
+    // These references show that every integer eventually goes to one of the following numbers:
+    //  0, 1, 4, 16, 20, 37, 42, 58, 89, 145
+    // This information is used to determine whether there is an infinite loop
+    while (true) {
+        // See if this number is happy!
+        if (num == 1)
+            return true;
+
+        // If in this list, return false -- in infinite loop
+        if (num == 0 || num == 4 || num == 16 || num == 20 || num == 37 || num == 42 || num == 58 || num == 89 || num == 145)
+            return false;
+
+        // Compute new happy number...
+        var str = num.toString();
+        var n = str.length - 1;     // Index to last digit
+        // Get the square of the last digit
+        var digit = str.charAt(n);
+        num = digit * digit;
+
+        // If any more digits, get them
+        while (n--) {
+            digit = str.charAt(n);
+            num += digit * digit;
+        }
+    }
+}
+
+function checkHappy() {
+    // Keep going until we find the first five happy numbers!
+    var count = 0;
+
+    // Reset list
+    var x = document.getElementById("Result2-2");
+    x.innerHTML = "<br/>";
+
+    // Start timer...
+    var start = new Date();
+    var hNum = 7;
+    while (count < 5) {
+        if (isHappy(hNum)) {
+            count++;    // Got a happy number!
+            x.innerHTML += hNum.toString() + "<br/>";
+        }
+        hNum++;
+    }
+    var elapsed = new Date() - start;;
+    x.innerHTML += "<br/>Elapsed time: " + elapsed + " msecs";
+}
+
+function ShowAlgo() {
+    // Display the algorithm
+    document.getElementById("Algorithm2-1").showModal();
+
+}
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-3 -->
+<div class="modal fade" id="Ex2-3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish23()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Armstrong Numbers</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Armstrong Numbers</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a program to find all three-digit Armstrong numbers. An Armstrong number is an integer such that the sum of the cubes of its digits is equal to the number itself. (i.e. 371 is an Armstrong number since 33 + 73 + 13 = 371).
+                                    </p>
+                                    <br />
+                                    <div class="center">
+                                        <button class="btn btn-primary" onclick="checkArmstrong()">
+                                            Display Arsmstrong Numbers
+                                        </button>
+                                    </div>
+                                    <br />
+                                    <p id="Result2-3">
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </p>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function checkArmstrong() {
+    // Reset list
+    var x = document.getElementById("Result2-3");
+    x.innerHTML = "<br/>";
+    // Start timer...
+    var start = new Date();
+    // Keep going until we find all 3-digit Armstrong numbers!
+    // Need a placeholder for hundreds, tens, and ones
+    // Use digits, avoid strings... will be faster!
+    var hundreds = 1, tens = 0, ones = 0;   // First number is 100!
+    // Keep going until we exceed 999 (this is the case when 'hundreds' becomes 10)
+    var num = 100;                    // This is the starting number
+    while (hundreds < 10) {
+        if (num == 154)
+            num = 154;
+        var sum = hundreds * hundreds * hundreds +
+                tens * tens * tens + ones * ones * ones;
+        if (sum == num++) {
+            // Found an Armstrong number, so write it out
+            x.innerHTML += sum.toString() + "<br/>";    // Use 'sum' since 'num' already points to next num not yet tested!
+        }
+        // Now increment the number's components for next iteration
+        if (++ones == 10) {
+            ones = 0;
+            if (++tens == 10) {
+                tens = 0;
+                hundreds++;
+            }
+        }
+    }
+    var elapsed = new Date() - start;;
+    x.innerHTML += "<br/>Elapsed time: " + elapsed + " msecs";
+}
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-4 -->
+<div class="modal fade" id="Ex2-4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish24()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Longest Word</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Longest Word</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- Insert exercise code here!-->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a function <var>findLongestWord()</var> that finds and displays the longest word in a selected text file.
+                                    </p>
+                                    <h4>Select file to search:</h4>
+                                    <br />
+                                    <input type="file" id="myFile2-4" name="theFile">
+                                    <p id="fType2-4">
+                                        <br />
+                                    </p>
+                                    <br />
+                                    <button class="btn btn-primary center-block" id="btnMain2-4" onclick="findLongestWord()">
+                                        Find Longest Word
+                                    </button>
+                                    <p id="Stats2-4">
+                                    </p>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function findLongestWord() {
+    // First, access the file info...
+    var x = document.getElementById("myFile2-4");
+    var f = x.files[0];
+    // For this example, let's make sure the found file is a text file
+    if ((typeof f === "undefined") || (typeof f === "null")) {
+        // No file selected
+        alert("You must first select a file... please try again!");
+        return;
+    }
+    if (!(f.type.indexOf("text") === 0)) {
+        // Alert user to change the file type first...
+        alert("Please select a different file; the one you selected is not a text file!");
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = (function (theFile) {
+        return function (e) {
+            // Simple method: make a copy of the data, replacing all non-alpha chars with spaces
+            // Then, do regular .split(" ") on the result
+            var newStr = "";
+            var i = 0;
+            for (i = 0; i < e.target.result.length; i++) {
+                var c = e.target.result.charAt(i);
+                // If valid alpha char, keep, else insert space
+                if ((c >= "A" && c <= "Z") || (c >= "a" && c <= "z"))
+                    newStr += c;
+                else newStr += " ";
+            }
+            // Do, do split
+            var myStrings = newStr.split(" ");
+            // Now, check for longest word...
+            var found = "";
+            for (i = 0; i < myStrings.length; i++) {
+                var ss = myStrings[i];
+                if (ss.length > found.length)
+                    found = ss;
+            }
+            // 'found' is the longest string (there could be others the same size, however)
+            var dest = document.getElementById("btnMain2-4");
+            dest.innerHTML = "Longest word: '" + found + "'";
+        };
+    })(f);
+    // Now, read the file data!
+    reader.readAsText(f);
+}
+function gotTargetFile(evt) {
+    var x = document.getElementById("fType2-4");
+    var f = this.files[0];
+    x.innerHTML = "File type: " + f.type;
+    // Reset button text...
+    document.getElementById("btnMain2-4").innerHTML = "Find Longest Word";
+}
+document.getElementById("myFile2-4").addEventListener("change",
+    gotTargetFile, false);
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-5 -->
+<div class="modal fade" id="Ex2-5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish25()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Long Words</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Long Words</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Insert exercise code here!-->
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a function <var>filterLongWords()</var> that finds and displays all words that are longer than a given integer
+                                        <var>i</var> in a selected text file. Do not display words more than once.
+                                    </p>
+                                    <h4>Select word length and file:</h4>
+                                    <input type="file" id="myFile2-5" name="theFile">
+                                    <p id="FileType2-5">
+                                        <br />
+                                    </p>
+                                    <br />
+                                    <h4>Filter Words Greater Than:&nbsp;&nbsp;&nbsp;</h4>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <input type="text" id="MaxLen2-5" value="10" size="8" maxlen="8" class="text-center">
+                                            &nbsp;&nbsp;characters in length
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <br />
+                                    <button class="btn btn-primary center-block" id="btnMain2-5" onclick="filterLongWords()">
+                                        Filter Long Words
+                                    </button>
+                                    <div class="row center">
+                                        <br />
+                                        <div class="col-sm-5">
+                                            <textarea id="txtArea25"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function filterLongWords() {
+    // First, access the file info...
+    var x = document.getElementById("myFile2-5");
+    var f = x.files[0];
+    // For this example, let's make sure the found file is a text file
+    if ((typeof f === "undefined") || (typeof f === "null")) {
+        // No file selected
+        alert("You must first select a file... please try again!");
+        return;
+    }
+    if (!(f.type.indexOf("text") === 0)) {
+        // Alert user to change the file type first...
+        alert("Please select a different file; the one you selected is not a text file!");
+        return;
+    }
+    // Make sure there is a valid value in the text box
+    var tmpVal = document.getElementById("MaxLen2-5").value;
+    var targetLen = parseInt(tmpVal);
+    if (isNaN(targetLen) || targetLen < 0) {
+        alert("Please enter a valid non-negative number");
+        return;
+    }
+    // Number is OK, so process now!
+    var start = new Date();
+    var reader = new FileReader();
+    reader.onload = (function (theFile) {
+        return function (e) {
+            // Inside here, we can call 'findLongestWord'...
+            // Simple method: make a copy of the data, replacing all non-alpha chars with spaces
+            // Then, do regular .split(" ") on the result
+            var newStr = "";
+            var i = 0;
+            for (i = 0; i < e.target.result.length; i++) {
+                var c = e.target.result.charAt(i);
+
+                // If valid alpha char, keep, else insert space
+                if ((c >= "A" && c <= "Z") || (c >= "a" && c <= "z"))
+                    newStr += c;
+                else newStr += " ";
+            }
+            // Do split
+            var myStrings = newStr.split(" ");
+            // One way to ensure that a word is displayed only once is to sort the array
+            // Then, write a value only if it meets the length requirement AND is different
+            // from the previous value written.
+            myStrings.sort();
+            // Now, check for qualifying words...
+            var dest = document.getElementById("txtArea25");
+            dest.innerHTML = "";    // Clear the screen
+            var found = "";
+            // Vars to speed things up when processing larger files...
+            var count = 0;
+            var temp = "";
+            for (i = 0; i < myStrings.length; i++) {
+                var ss = myStrings[i];
+                if (ss.length > targetLen && ss != found) {
+                    // Display this value...
+                    temp += found + "\n";
+                    // And remember this so we don't duplicate it
+                    found = ss;
+
+                    // See if it's time to add to innerHTML...
+                    if (++count > 200) {
+                        count = 0;
+                        dest.innerHTML += temp;
+                        temp = "";
+                    }
+                }
+            }
+            // Append the last chunk...
+            dest.innerHTML += temp;
+            // And show the time elapsed
+            var elapsed = new Date() - start;
+            temp = "\nElapsed time:\n    " +
+                + elapsed + " msecs";
+            dest.innerHTML += temp;
+        };
+    })(f);
+    // Now, read the file data!
+    reader.readAsText(f);
+}
+function gotTargetFile(evt) {
+    var x = document.getElementById("FileType2-5");
+    var f = this.files[0];
+    x.innerHTML = "(File type: " + f.type + ")";
+}
+document.getElementById("myFile2-5").addEventListener("change",
+    gotTargetFile, false);
+</script>
+                                    </pre>
+                                </div>
+                            </div>
+                            <!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-6 -->
+<div class="modal fade" id="Ex2-6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish26()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Word Frequency</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Word Frequency</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Insert exercise code here!-->
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a function <var>wordFreq()</var> that displays a frequency listing of the words contained in a selected text file. Order the words by frequency.
+                                    </p>
+                                    <br />
+                                    <h4>Select file to check:</h4>
+                                    <input type="file" id="myFile2-6" name="theFile">
+                                    <p id="FileType26">
+                                        <br />
+                                    </p>
+                                    <br />
+                                    <button class="btn btn-primary center-block" id="btnMain2-6" onclick="wordFrequency26()">
+                                        Check Word Frequencies
+                                    </button>
+
+                                    <div class="row center">
+                                        <br />
+                                        <div class="col-sm-5 center">
+                                            <textarea id="txtArea26"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Headers for the output, to make it pleasant to read
+                                        This section will be unhidden as soon as output starts -->
+                                    @*<div class="row hidden" id="OutputRow2-6">
+                                        <div class="col-sm-5">
+                                            <h4>Word</h4>
+                                            <p id="Words2-6"></p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h4 class="text-center">Frequency</h4>
+                                            <p id="Freq2-6" class="text-center"></p>
+                                        </div>
+                                    </div>*@
+
+                                    <p id="Result2-6"></p>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+function TimedTest() {
+    var start = new Date();
+    var i = 0;
+    var max = 1000 * 1000 * 100;
+    for (i = 0; i < max; i++)
+        ; // do nothing
+    var elapsed = new Date() - start;
+    var dest = document.getElementById("txtArea26");
+    dest.innerHTML = "Elapsed time: " + elapsed + " msecs";
+}
+function wordFrequency26() {
+    // First, clear the Results area...
+    $("#txtArea26").val("");
+    var destTA = "";
+    var start = new Date();
+    // Next, access the file info...
+    var x = document.getElementById("myFile2-6");
+    var f = x.files[0];
+    // For this example, let's make sure the found file is a text file
+    if ((typeof f === "undefined") || (typeof f === "null")) {
+        // No file selected
+        alert("You must first select a file... please try again!");
+        return;
+    }
+    if (!(f.type.indexOf("text") === 0)) {
+        // Alert user to change the file type first...
+        alert("Please select a different file; the one you selected is not a text file!");
+        return;
+    }
+    // Process now!
+    var reader = new FileReader();
+    reader.onload = (function (theFile) {
+        return function (e) {
+            // Simple method: make a copy of the data, replacing all non-alpha chars with spaces
+            // Then, do regular .split(" ") on the result
+            var newStr = "";
+            var temp = "";
+            var counter = 0;
+            var i = 0;
+            for (i = 0; i < e.target.result.length; i++) {
+                var c = e.target.result.charAt(i);
+
+                // If valid alpha char, keep, else insert space
+                if ((c >= "A" && c <= "Z") || (c >= "a" && c <= "z"))
+                    temp += c;
+                else temp += " ";
+                if (counter++ > 30000) {
+                    counter = 0;
+                    newStr += temp;
+                    temp = "";
+                }
+            }
+            newStr += temp;
+            // So, do split
+            var myStrings = newStr.split(" ");
+            // Sort the words in order to prepare for next operation
+            myStrings.sort();
+            // Iterate thru sorted list, create new list of word frequencies...
+            var newList = [];
+            var last = "";
+            for (i = 0; i < myStrings.length; i++) {
+                // Counter number of times this word occurs, then create new entry
+                // in newList...
+                ss = myStrings[i];
+                if (ss == last)
+                    counter++;
+                else {
+                    // Found a new word -- so output the last one
+                    // 'last' is the word and 'counter' is the frequency
+                    newList.push([last, counter]);
+                    counter = 1;
+                    last = ss;      // And set to the new word
+                }
+            }
+            // There could be a last word at the end, so push it to newList also
+            if (counter > 0)
+                newList.push([last, counter]);
+
+            // Now, sort by frequency
+            newList.sort(
+                function (a, b) {
+                    if (a[1] == b[1])   // If sizes the same, then sort by string
+                        return b[0] < a[0] ? -1 : 1;
+                    else return b[1] - a[1];
+                }
+            );
+            // Now, print out the frequencies
+            var i;
+            var tempW = "", tempF = "";   // temp strings to gather words and frequencies
+            var tempTa = "";
+            var tempTa2 = "";
+            var count = 0;
+            var lenWord = 0;
+            for (i = 0; i < newList.length; i++) {
+                freqWord = newList[i][1];
+                if (newList[i][0].length > 0) {
+                    tempTa += newList[i][0] + " - " + freqWord +
+                        (freqWord > 1 ? " times\n" : " time\n");
+                    // To speed things up, use temporary array for smaller copies first
+                    if (++count > 400) {
+                        tempTa2 += tempTa;
+                        tempTa = "";
+                        count = 0;
+                    }
+                }
+            }
+            // At the end, add temp to dest...
+                        // And show elapsed time
+            var elapsed = new Date() - start;
+            document.getElementById("txtArea26").value = tempTa2 + tempTa + "\nElapsed time:\n    " + elapsed + "msecs";
+        };
+    })(f);
+    // Now, read the file data!
+    reader.readAsText(f);
+}
+function gotTargetFile(evt) {
+    var x = document.getElementById("FileType26");
+    var f = this.files[0];
+    x.innerHTML =
+        "File type: " + f.type;
+}
+document.getElementById("myFile2-6").addEventListener("change",
+    gotTargetFile, false);
+</script>
+                                    </pre>
+                                </div>
+                            </div><!-- Insert exercise code here!-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer no-margin hidden">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exercise 2-7 -->
+<div class="modal fade" id="Ex2-7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="finish27()">×</button>
+                <h1 class="modal-title" id="myModalLabel">Find Word</h1>
+            </div>
+            <div class="container-fluid">
+                <div class="modal-body col-sm-12">
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Find Word</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <!-- Insert exercise code here!-->
+                                    <h3>Requirement:</h3>
+                                    <p>
+                                        Write a function <var>findWord()</var> that returns the total number of occurrences of a given word in a selected text file
+                                        (i.e. the number of occurrences of 'Alice' in the first chapter of <cite>Alice in Wonderland</cite>).
+                                    </p>
+                                    <br />
+                                    <h4>Select file and word to check:</h4>
+                                    <input type="file" id="myFile2-7" name="theFile">
+                                    <p id="FileType2-7">
+                                        <br />
+                                    </p>
+                                    <br />
+                                    <p>
+                                        Word to check:
+                                        <input type="text" id="ThisWord2-7" onchange="Changed()" size=20 maxlength="30">
+                                    </p>
+                                    <br />
+                                    <button class="btn btn-primary center-block" id="btnMain2-7" onclick="wordFrequency27()">
+                                        Check Word Occurrences
+                                    </button>
+                                    <div class="center">
+                                        Case: &nbsp;
+                                        <input type="radio" name="case" onchange="radioChanged()" value="sensitive" checked> Sensitive
+                                        &nbsp;
+                                        <input type="radio" name="case" onchange="radioChanged()" value="insensitive"> Ignore
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <pre class="brush: js">
+<script type="text/javascript">
+var wordChecksOK = false;
+function wordFrequency27() {
+    // First, access the file info...
+    var x = document.getElementById("myFile2-7");
+    var f = x.files[0];
+    // For this example, let's make sure the found file is a text file
+    if ((typeof f === "undefined") || (typeof f === "null")) {
+        // No file selected
+        alert("You must first select a file... please try again!");
+        return;
+    }
+    if (!(f.type.indexOf("text") === 0)) {
+        // Alert user to change the file type first...
+        alert("Please select a different file; the one you selected is not a text file!");
+        return;
+    }
+    // Make sure there is a valid value in the text box
+    var tmpVal = document.getElementById("ThisWord2-7").value;
+    if (tmpVal.length == 0) {
+        alert("Please enter a word to find in the file");
+        return;
+    }
+    // Ready to process now!
+    var reader = new FileReader();
+    reader.onload = (function (theFile) {
+        return function (e) {
+            // Simple method: make a copy of the data, replacing all non-alpha chars with spaces
+            // Then, do regular .split(" ") on the result
+            var newStr = "";
+            var i = 0;
+            for (i = 0; i < e.target.result.length; i++) {
+                var c = e.target.result.charAt(i);
+                // If valid alpha char, keep, else insert space
+                if ((c >= "A" && c <= "Z") || (c >= "a" && c <= "z"))
+                    newStr += c;
+                else newStr += " ";
+            }
+            // Do, do split
+            var myStrings = newStr.split(" ");
+            // Determine whether to ignore case...
+            var count = 0;
+            var myCase = document.getElementsByName("case");
+            if (myCase[0].checked) {
+                // Do case-sensitive search
+                for (i = 0; i < myStrings.length; i++) {
+                    // Count up the number of times 'tmpVal' occurs...
+                    if (myStrings[i] == tmpVal)
+                        count++;
+                }
+            } else {
+                // Ignore case...
+                newVal = tmpVal.toUpperCase();
+                for (i = 0; i < myStrings.length; i++) {
+                    // Count up the number of times 'tmpVal' occurs...
+                    if (myStrings[i].toUpperCase() == newVal)
+                        count++;
+                }
+            }
+            // Now, print out the result...
+            var dest = document.getElementById("btnMain2-7");
+            switch (count) {
+                case 0:
+                    dest.innerHTML = "Sorry, that word does not occur in the file";
+                    break;
+                case 1:
+                    dest.innerHTML = "Word occurs one time in the file";
+                    break;
+                default:
+                    dest.innerHTML = "Word occurs " + count + " times in the file";
+                    break;
+            }
+            // And show that we can switch case...
+            wordChecksOK = true;
+        };
+    })(f);
+    // Now, read the file data!
+    reader.readAsText(f);
+}
+function gotTargetFile(evt) {
+    var x = document.getElementById("FileType2-7");
+    var f = this.files[0];
+    x.innerHTML =
+        "File type: " + f.type;
+}
+function Changed() {
+    // Clear the main button when any selections change...
+    var dest = document.getElementById("btnMain2-7");
+    dest.innerText = "Check Word Occurrences";
+    wordChecksOK = false;
+}
+function radioChanged() {
+    // Clear the main button when any selections change...
+    if (wordChecksOK) {
+        wordFrequency27();
+        return;
+    }
+    // Need to just reset button...
+    Changed();
+}
+document.getElementById("myFile2-7").addEventListener("change",
+    gotTargetFile, false);
+</script>
+                            </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Insert exercise code here!-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer no-margin hidden">
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        SyntaxHighlighter.all();
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuPortfolio").addClass("active");
+        });
+        $("#Ex1-1").on("show.bs.modal", function () {
+            //alert("This is working if the alert shows up");
+            // Update the text boxes and reset the result area
+           // $("#Num1-11").val('1');
+           // $("#Num1-12").val('2');
+           // $("#Num1-13").val('3');
+           // $("#Num1-14").val('4');
+           // $("#Num1-15").val('5');
+           // $("Result1-1").text("???");
+        });
+        function finish11() {
+            $("#Num1-11").val('1');
+            $("#Num1-12").val('2');
+            $("#Num1-13").val('3');
+            $("#Num1-14").val('4');
+            $("#Num1-15").val('5');
+            $("#Result1-1").text('???');
+        }
+        function finish12() {
+            $("#Num1-21").val('1');
+            $("#Num1-22").val('2');
+            $("#Num1-23").val('3');
+            $("#Num1-24").val('4');
+            $("#Num1-25").val('5');
+            $("#sum12").val("");
+            $("#product12").val("");
+        }
+        function finish13() {
+            $("#Num1-3").val('7');
+            $("#Result1-3").text('???');
+        }
+        function finish14() {
+            $("#String1-4").val('radar');
+            $("#Result1-4").text('???');
+        }
+        function finish15() {
+            $("#Result1-5").text('');
+        }
+        function finish21() {
+            $("#Result2-1").html('<br /><br /><br /><br /><br /><br /><br /><br />');
+            $("#isItPerfect21").text("");
+            $("#txt21").val("");
+
+        }
+        function finish22() {
+            $("#Result2-2").html('<br /><br /><br /><br /><br /><br /><br /><br />');
+        }
+        function finish23() {
+            $("#Result2-3").html('<br /><br /><br /><br /><br /><br /><br /><br />');
+        }
+        function finish24() {
+            $("#fType2-4").html('<br />');
+            $("#Stats2-4").html('');
+            $("#btnMain2-4").text('Find Longest Word');
+        }
+        function finish25() {
+            $("#MaxLen2-5").val("10");
+            $("#FileType2-5").html('<br />');
+            $("#txtArea25").html('');
+        }
+        function finish26() {
+            $("#Words2-6").text('');
+            $("#FileType26").html('<br />')
+            $("#Freq2-6").text('');
+            $("#txtArea26").val('');
+            //$("#OutputRow2-6").toggleClass("hidden", true);
+        }
+        function finish27() {
+        }
+    </script>
+}
+
+

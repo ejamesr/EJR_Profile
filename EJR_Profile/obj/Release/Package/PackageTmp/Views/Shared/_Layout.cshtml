@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio for Eric J. Ruff">
+    <meta name="author" content="Eric J. Ruff">
+    <link rel="shortcut icon" href="~/img/favicon.png">
+    <title>Portfolio for Eric J. Ruff - Homepage</title>
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>*@
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="~/css/color-styles.css" rel="stylesheet">
+    <link href="~/css/ui-elements.css" rel="stylesheet">
+    <link href="~/css/custom.css" rel="stylesheet">
+    <!-- Resources -->
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="~/css/shCore.css" rel="stylesheet" /><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link href="~/css/shThemeDefault.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    @*<script type="text/javascript">
+            var appInsights = window.appInsights || function (config) {
+                function s(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, r = document, f = window, e = "script", o = r.createElement(e), i, u; for (o.src = config.url || "//az416426.vo.msecnd.net/scripts/a/ai.0.js", r.getElementsByTagName(e)[0].parentNode.appendChild(o), t.cookie = r.cookie, t.queue = [], i = ["Event", "Exception", "Metric", "PageView", "Trace"]; i.length;) s("track" + i.pop()); return config.disableExceptionTracking || (i = "onerror", s("_" + i), u = f[i], f[i] = function (config, r, f, e, o) { var s = u && u(config, r, f, e, o); return s !== !0 && t["_" + i](config, r, f, e, o), s }), t
+            }({
+                instrumentationKey: "08896464-96f8-4ea7-920a-5eb1432306b0"
+            });
+
+            window.appInsights = appInsights;
+            appInsights.trackPageView();
+        </script>*@
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+    @if (IsSectionDefined("NeedHover"))
+    {
+        @RenderSection("NeedHover");
+    }
+    <!-- My custom stylesheet, put after all other stylesheets -->
+    <link href="~/css/ejr-custom.css" rel="stylesheet" />
+</head>
+<body class="body-blue">
+    <!-- Extra Bar -->
+    <div class=" mini-navbar-dark hidden-xs">
+        <div class="myLogin row">
+            <div class="col-md-12">
+                @*<span class="phone">
+                        <i class="fa fa-phone-square"></i> Tel.: +1 801.318.5889
+                    </span>*@
+                @*<div>
+                    <a href="sign-up.html" class="pull-right"><i class="fa fa-arrow-circle-down"></i> Sign Up</a>
+                    <a href="sign-in.html" class="pull-right"><i class="fa fa-sign-in"></i> Sign In</a>
+                    <a href="#" class="pull-right" id="nav-search"><i class="fa fa-search"></i> Search</a>
+                    <a href="#" class="pull-right hidden" id="nav-search-close"><i class="fa fa-times"></i></a>
+                    <!-- Search Form -->
+                    <form class="pull-right hidden" role="search" id="nav-search-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>*@
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="navbar navbar-dark navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Navbar Header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("AboutMe", "Home") ">
+                    <img class=" ejr" width="44" height="44" src="~/img/EricRuff.jpg" /> &nbsp;&nbsp;Eric J. Ruff
+                </a>
+                @*<a class="navbar-brand" href="@Url.Action("Portfolio", "Home")"><span class="hidden-sm">Portfolio</span></a>*@
+            </div> <!-- / Navbar Header -->
+            <!-- Navbar Links -->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li id="menuIndex" class="main-menu">@Html.ActionLink("Home", "Index", "Home", "", new { @class = "bg-hover-color" })</li>
+                    <li id="menuAbout" class="main-menu">@Html.ActionLink("About", "AboutMe", "Home", "", new { @class = "bg-hover-color" })</li>
+                    <li id="menuPortfolio" class="main-menu">@Html.ActionLink("Portfolio", "Portfolio", "Home", "", new { @class = "bg-hover-color" })</li>
+                    <li id="menuResume" class="main-menu">@Html.ActionLink("Resume", "Resume", "Home", "", new { @class = "bg-hover-color" })</li>
+                    <li id="menuBlog" class="main-menu">@Html.ActionLink("Blog", "Index", "Posts", "", new { @class = "bg-hover-color" })</li>
+                    @*<li id="menuBlog" class="main-menu">@Html.ActionLink("Blog", "Blog", "Home", "", new { @class = "bg-hover-color" })</li>*@
+                    <li id="menuContact" class="main-menu">@Html.ActionLink("Contact", "ContactMe", "Home", "", new { @class = "bg-hover-color" })</li>
+
+                    <!-- This shows how to do a dropdown menu, but we don't want it at this point -->
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle bg-hover-color" data-toggle="dropdown">My Portfolio <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("JavaScript Exercises", "JS_Exercises", "Home", new { @class = "bg-hover-color" })</li>
+                                <li>@Html.ActionLink("Coding for Performace", "ComingSoon", "Home", new { @class = "bg-hover-color" })</li>
+                            </ul>
+                        </li>*@
+                </ul>
+
+                <!-- Search Form (xs) -->
+                <form class="navbar-form navbar-left visible-xs" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Go!</button>
+                </form> <!-- / Search Form (xs) -->
+            </div> <!-- / Navbar Links -->
+        </div> <!-- / container -->
+    </div> <!-- / navbar -->
+    @RenderBody()
+    <hr />
+    <!-- Footer -->
+    <footer class="footer-dark">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Us -->
+                <div class="col-sm-4">
+                    <h3 class="text-color"><span class="border-color">Contact Me</span></h3>
+                    <div class="content">
+                        <p>
+                            <a name="ContactInfo"></a>
+                            Please contact me through:<br /><br />
+                            T. J. Jones -- Coder Foundry<br />
+                            Director of Partnership Development<br />
+                            Schedule a Call - <a target="_blank" href="https://tj.youcanbook.me">https://tj.youcanbook.me/</a><br />
+                            L: <a target="_blank" href="https://www.linkedin.com/in/jonestj">linkedin.com/in/jonestj</a><br />
+                            O: 336.970.5678<br />
+                            <span class="hidden">M: 336.416.7730</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- Social icons -->
+                <div class="col-sm-4">
+                    <h3 class="text-color"><span>Go Social</span></h3>
+                    <div class="content social">
+                        <p>Stay in touch with me:</p>
+                        <ul class="list-inline">
+                            @*<li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#" class="github"><i class="fa fa-github"></i></a></li>*@
+                            <li><a target="_blank" href="https://www.linkedin.com/in/ericjruff" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/eric.ruff.980" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                            @*<li><a href="#" class="vk"><i class="fa fa-vk"></i></a></li>
+                                <li><a href="#" class="plus"><i class="fa fa-google-plus"></i></a></li>*@
+                        </ul>
+                        <br />
+                        <i class="fa fa-envelope"></i>
+                        Email:
+                        <a href="#" class="first-child hidden-sm"> ejames.ruff@gmail.com</a>
+                    </div>
+                </div>
+                <!-- Subscribe -->
+                @*<div class="col-sm-4">
+                        <h3 class="text-color"><span>Subscribe</span></h3>
+                        <div class="content">
+                            <p>Enter your e-mail below to subscribe to our free newsletter.<br />We promise not to bother you often!</p>
+                            <form class="form" role="form">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <label class="sr-only" for="subscribe-email">Email address</label>
+                                            <input type="email" class="form-control" id="subscribe-email" placeholder="Enter email">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-default">OK</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>*@
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+            <!-- Copyrights -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>&copy; 2015 Eric J. Ruff</p>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="~/js/jquery-2.1.4.min.js"></script>
+    <script src="~/js/jquery.sticky.js"></script>
+    <script src="~/js/jquery.plugin.min.js"></script>
+    <script src="~/js/jquery.countdown.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/scrolltopcontrol.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/js/shCore.js"></script>
+    <script src="~/js/shBrushJScript.js"></script>
+    <script src="~/js/jquery.dotdotdot.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

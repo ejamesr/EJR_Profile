@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=EJR-HP\SQLEXPRESS;&#xD;&#xA;         Initial Catalog=ejamesr_db;&#xD;&#xA;         Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ejamesrADB-Web.config Connection String" description="ejamesrADB Connection String used in web.config by the application to access the database." defaultValue="Data Source=mbmuw7kmu9.database.windows.net;&#xD;&#xA;         Database=ejamesr_db;                                                        &#xD;&#xA;         User ID=CoderFoundry;                                                        &#xD;&#xA;         Password=LearnToCode1;                                                        &#xD;&#xA;         Encrypt=true;                                                        &#xD;&#xA;         Trusted_Connection=false;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ejamesrADB']/@connectionString" />
+  </parameter>
+  <parameter name="ejamesrADB_DatabasePublish-Web.config Connection String" description="ejamesrADB_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="ejamesrADB_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ejamesrADB_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

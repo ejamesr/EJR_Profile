@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "About Me";
+}
+
+   <!-- Wrapper -->
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">About Me</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">About Me</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row about-us-p">
+            <div class="col-sm-7">
+                <h2 class="headline first-child text-color">
+                    <span class="border-color">Welcome Message</span>
+                </h2>
+                <p>Welcome to my personal website!  This is the first website I've built, and it's a work in progress.</p>
+                <h4>Coder Foundry Bootcamp is Torture!</h4>
+                <p>I'm currently enrolled in the <a target="_blank" href="http://www.coderfoundry.com/masterclass/">Coder Foundry Masters Bootcamp</a>
+                    in Charlotte, North Carolina. I'll update this site
+                    as the weeks go by... assuming I'm still alive and have kept all my wits (my hair?? that's another story!).
+                    By the end of September I will have added intermediate proficiency of HTML5, CSS3, JavaScript,
+                    C#, MVC, ASP.NET, and other technologies to my professional programming background.
+                </p>
+                <h4>Professional Technologies</h4>
+                <ul>
+                    <li>Proficient in 32- and 64-bit assembly language (especially the <a target="_blank" href="http://flatassembler.net/">FASM</a> dialect)</li>
+                    <li>Proficient in C, C++; some proficiency in Java</li>
+                    <li>Increasing proficiency in JavaScript, HTML5, CSS3 at Bootcamp</li>
+                    <li>Proficient in coding and making things go fast, fastER, and FASTEST!!</li>
+                </ul>
+                <p>
+                    I am an expert regarding what goes on inside the CPU. 
+                    I understand key performance issues related to memory, 
+                    CPU cache structures, Intel instruction sets, and file systems and storage.
+                </p>
+                <p>
+                    Coding is my personal favorite because I love making things go fast. 
+                    Focusing on performance issues is one of my strong points. 
+                    In a couple of projects 
+                    (here in the <span>@Html.ActionLink("JavaScript exercises", "JS_Exercises", "Home")</span>) 
+                    you'll see how I improved 
+                    the speed of one solution by about 50x
+                    compared to the approach used by most programmers.
+                </p>
+                <h4>Working with People</h4>
+                <p>
+                    I love working with people! I love to help and teach others. 
+                    I can be a great team player but also work well on my own. 
+                    I've been in charge of, and in the middle of, some incredible development teams. 
+                    I've managed dozens of programmers (I know all their tricks, and have some of my own!). 
+                    I love my family, and I’ve enjoyed living in Utah for the past 40 years. 
+                    And because I have ties to family in many different states now,  I’m up for a new adventure! 
+                </p>
+                <h4>I'm Ready!</h4>
+                <p>
+                    So... although I've been an entrepreneur in the past, it's time to come back to my programming roots. 
+                    I love technology (I have <span>@Html.ActionLink("8 U.S. patents in my name, and several more pending","IP","Home")</span>). 
+                    I love making things go fast. I love working. And I also love to jump
+                    into the unknown, to find ways to make things better.
+                </p>
+                <p>
+                    And that's not all, here are some bonus <span>@Html.ActionLink("fun facts about me","Other","Home")</span>.
+                </p>
+                <p>
+                    Let’s talk! The fastest way to reach me is by e-mail. 
+                    I'd love to see how I can contribute best to your company by solving perplexing problems 
+                    and creating innovative solutions. 
+                    And if speed and performance are an issue for your company, then contact me AS SOON AS POSSIBLE!
+                </p>
+                <hr>
+                @Html.ActionLink("Contact Me", "ContactMe", "Home", new { @class="btn btn-lg btn-color" })
+                <br /><br />
+            </div>
+            <div class="col-sm-5">
+                <h2 class="headline first-child text-color">
+                    <span class="border-color">Video Intro</span>
+                </h2>
+                <h1>[ Placeholder for video ]</h1>
+                @*<div class="flex-video">
+                    <iframe src="//player.vimeo.com/video/67449472" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                </div>*@
+            </div>
+        </div> <!-- / .row -->
+        @*<div class="row our-team-p">
+            <div class="col-sm-12">
+                <h2 class="headline text-color">
+                    <span class="border-color">My 'Team'</span>
+                </h2>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="team-member text-center">
+                            <img class="img-responsive center-block" src="~/img/ruff0012.jpg" alt="...">
+                            The Ruff family
+                            <p class="text-muted">The Ruffs</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="team-member text-center">
+                            <img class="img-responsive center-block" src="~/img/ruff0166 copy.jpg" alt="...">
+                            Eric and Janine
+                            <p class="text-muted">Founders</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div> <!-- / .row -->
+            </div>
+        </div> <!-- / .row -->*@
+    </div> <!-- / .container -->
+</div> <!-- / .wrapper -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuAbout").addClass("active");
+        });
+    </script>
+}
+
+

@@ -1,0 +1,152 @@
+﻿@model EJR_Profile.Models.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+@section NeedHover {
+    <link href="~/css/hover-min.css" rel="stylesheet" media="all">
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3 class="primary-font">
+                        My Blog &nbsp;&nbsp;&nbsp;
+                        <img src="~/img/ruff0166.jpg" height="80" class="hvr-grow" />
+                        <img src="~/img/ruff0012.jpg" height="80" class="hvr-grow" />
+                        <img src="~/img/christus_statue.jpg" height="80" class="hvr-grow" />
+                        <img src="~/img/provo-utah-lds-temple.jpg" height="80" class="hvr-grow" />
+                    </h3>
+                </div>
+                <div class="col-sm-4">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+                        <li class="active">Create</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @* To specify that the form comes in multiple parts: *@
+        @using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group hidden">
+                    @Html.HiddenFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Created, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @* This is not needed, so I can delete the Updated stuff rather than comment it out *@
+                @*<div class="form-group">
+                        @Html.HiddenFor(model => model.Updated, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Updated, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Updated, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Body, 7, 0, htmlAttributes: new { @class = "form-control", id = "rtfBody" })
+                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @Html.HiddenFor(model => model.MediaURL) @*, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="form-group">
+                    @Html.Label("Image Upload", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*the name attribute is the important thing here - see controller method parameters*@
+                        <input type="file" id="fileUpload" name="fileUpload" class="btn btn-primary form-control" onchange="GotImage(this)" />
+
+                        @*@Html.EditorFor(model => model.MediaURL, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MediaURL, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MediaCaption, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MediaCaption,
+                         new { htmlAttributes = new { @class = "form-control", placeholder="Enter a caption for the file to upload" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Published)
+                            @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.ActionLink("Back to List", "Index", new { @page = ViewBag.PageNumber })
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="+ Create" class="btn btn-default btn-blue" />
+                    </div>
+                    <div class="col-md-8">
+                        <img src="#" id="NewImage" alt="Image to upload"/>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuBlog").addClass("active");
+        });
+
+        function GotImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#NewImage")
+                        .attr('src', e.target.result)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script src="~/js/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "#rtfBody",
+            plugins: "image",
+            setup: function (ed) {
+
+                ed.on('init', function (evt) {
+                    $('#' + ed.id + '_path_row').hide();
+                });
+            }
+        });
+    </script>
+    }

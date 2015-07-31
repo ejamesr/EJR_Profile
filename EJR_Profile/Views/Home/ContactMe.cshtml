@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Topic Header -->
+        <div class="topic">
+            <div class="container">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Contact Me</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">Contact Me</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 contact-us-p">
+                    <h2 class="headline first-child text-color">
+                        <span class="border-color">Contact Me</span>
+                    </h2>
+                    <h5>
+                        Making things go fast, solving the unsolvable, building companies, helping people become
+                        the best they can be. Tapping into a strong entrepreneurial drive to win in the marketplace.
+                        Confounding, surprising, and scaring competitors... and thrilling my team.
+                    </h5>
+                    <h5>
+                        That's what I do. And I can do it for you.
+                    </h5>
+                    <h5>
+                        If you are interested in learning more about what I've done and what I can do, let's get together. 
+                        Although my main ties are with Utah and Texas, if you're the right company with the right culture,
+                        I'm willing to spread my wings and try out a new place.
+                    </h5>
+                    <h5>
+                        If you need someone who understands technology and how to work with and motivate those 
+                        who create, design, build, support, market, and sell killer solutions... contact me.
+                    </h5>
+                    <br />
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="email">Your email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your message</label>
+                            <textarea class="form-control" rows="3" id="message" placeholder="Enter message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">Upload file</label>
+                            <input type="file" id="exampleInputFile">
+                            <p class="help-block">Attach your file here.</p>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Send a copy to myself
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-color">Send Request</button>
+                    </form>
+                </div>
+                <div class="col-sm-4">
+                    <h2 class="headline first-child first-child-m text-color">
+                        <span class="border-color">My Address</span>
+                    </h2>
+                    <p>
+                        Please <a href="#ContactInfo">contact me</a> through Coder Foundry via the information below.<br />
+                        I currently live in Provo, Utah, and am willing to relocate for the right position.
+                    </p>
+                    <h2 class="headline text-color">
+                        <span class="border-color">Google Map</span>
+                    </h2>
+                    <h5 class="border-color">
+                        <a target="_blank" href="http://www.coderfoundry.com/">
+                            <img src="~/img/CoderFoundry.png" style="width:90px; height:30px;" />
+                            Headquarters
+                    </h5>
+                    <div class="map">
+                        <iframe width="350" height="300" frameborder="0" style="border:0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d173802.09635553416!2d-80.19706754605271!3d35.95970023084098!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x64583b7d90957128!2sCoder+Foundry!5e0!3m2!1sen!2sus!4v1436823582584"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- / .wrapper -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuContact").addClass("active");
+        });
+    </script>
+}
+
+
+
+   

@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    int dYear = 2015;
+    int dMonth = 8;
+    int dDay = 20;
+    int dHour = 9, dMin = 0;
+    DateTime date = new DateTime(dYear, dMonth, dDay, dHour, dMin, 0);
+}
+<div class="body-content body-green coming-soon-p">
+    <div class="container">
+        <span id="countdown"></span>
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Main Content -->
+
+                <div class="item">
+                    <div class="jumbotron third">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h2 class="">Coming Soon<br /> on @date.ToString("f")!</h2>
+                                    <br />
+                                    <h3 class="">I'm on the edge, hope to finish soon...</h3>
+                                    <br /><br />
+                                    @Html.ActionLink("Trust me, I'm workin' on it!", "Index", "Home", new { @class = "btn btn-color animated slideInBottom delay-3" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- / Slide No 3 -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ @section scripts
+{
+    <script>
+        $(document).ready(function(){
+            // jQuery methods go here...	
+            $(function () {
+                var deadline = new Date(@dYear,@dMonth,@dDay,@dHour,@dMin,0);
+                //deadline = new Date(2015, 8, 20, 9);
+                $('#countdown').countdown({ until: deadline });
+                $('#year').text(deadline.getFullYear());
+            });
+        });
+    </script>
+}
+</div>

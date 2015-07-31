@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "IP";
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Intellectual Property</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Resume", "Resume", "Home")</li>
+                        <li class="active">Intellectual Property</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1>U.S. and International Patents</h1>
+        </div>
+        <div class="row">
+            <div class="services-item">
+                <i class="fa fa-gear fa-2x text-color"></i>
+                <div class="services-item-desc">
+                    <h3 class="primary-font">U.S. and international patents issued in my name</h3>
+                    <p class="text-muted">
+                        <ul>
+                            <li><a target="_blank" href="http://www.google.com/patents/US5675769">US 5,675,769 A</a> Method for manipulating disk partitions</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US5706472">US 5,706,472 A</a> Method for manipulating disk partitions</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6088778">US 6,088,778 A</a> Method for manipulating disk partitions</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6108697">US 6,108,697</a> System and method for transferring one-to-many disk image among computers in a network</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6108759">US 6,108,759 A</a> Manipulation of partitions holding advanced file systems</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6178487">US 6,178,487 B1</a> Manipulating disk partitions between disks</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6253300">US 6,253,300 B1</a> Computer partition manipulation during imaging</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/US6802028">US 6,802,028 B1</a> Computer virus detection and removal</li>
+                            <li><a target="_blank" href="https://www.google.com/patents/EP0811196B1?cl=fr&dq=EP+0811196+B1&hl=en&sa=X&ei=dXSjVaSIEcndoAT-qZeoAQ&ved=0CB4Q6AEwAA">EP 0811196 B1</a> Procédé et dispositif de manipulation des partitions des disques</li>
+                            <li><a target="_blank" href="http://www.google.com/patents/EP1025534B1?cl=en">EP 1025534 B1</a> Computer partition manipulation during imaging</li>
+                            <li><a target="_blank" href="https://www.google.com/patents/WO1996026487A1?cl=fr&dq=WO+1996026487+A1&hl=en&sa=X&ei=O3ajVe3kJITcoASuw56YAw&ved=0CB4Q6AEwAA">WO 1996026487 A1</a> Procédé de manipulation de partitions de disques</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <div class="services-item">
+                <i class="fa fa-gear fa-2x text-color"></i>
+                <div class="services-item-desc">
+                    <h3 class="primary-font">Other published (non-issued) patents pending</h3>
+                    <p class="text-muted">
+                        <ul>
+                            <li><a target="_blank" href="https://www.google.com.ar/patents/WO2014042976A3?cl=en&dq=numbergun+llc&hl=es-419&sa=X&ved=0CCEQ6AEwAGoVChMI1fvb17XexgIVCYCSCh2kEAQV">WO 2014042976 A3</a> Flexible high-speed generation and formatting of application-specified strings</li>
+                            <li><a target="_blank" href="https://www.google.com.ar/patents/WO2014150056A1?cl=en">WO 2014150056 A1</a> Improvements for base64 encoding and decoding</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div>
+
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $("main-menu").removeClass("active");
+                $("#menuResume").addClass("active");
+            });
+        </script>
+    }
+</div>

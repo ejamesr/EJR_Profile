@@ -1,0 +1,85 @@
+﻿/*------------------------------------------------------------------
+    Project:    EJR_Profile
+    Created:    15 July 2015
+Last Change:    15 July 2015
+    Version:    1.0
+------------------------------------------------------------------*/
+div.center, h4.center {
+    width: 100%;
+    text-align: center;
+}
+/* Create the separator on the Resume page */
+span.sep::after {
+    font-style: italic;
+    content: "\00a0|\00a0";
+}
+.md {
+    /*font-size: 1.19em; */
+}
+.md::after {
+}
+textarea {
+    height: 150px;
+    width: 300px;
+}
+cite {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+span.created {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 75%;
+}
+span.date {
+    font-size: 85%;
+}
+span.date-sm {
+    font-size: 60%;
+}
+span.created-sm {
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 60%;
+}
+div.row-date {
+    position: relative;
+    top: -15px;
+    margin-left: 3px;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    padding-bottom: 1px;
+}
+hr.row-date {
+    margin-top: 0;
+    margin-bottom: 20;
+    padding-top: 5;
+}
+div.del-adjust {
+    position: relative;
+    top: 6px;
+}
+.mce-path {/* CSS */
+    display: none !important;
+}
+a.hvr-underline-from-center {
+    text-decoration: none;
+}
+a.no-decoration {
+    text-decoration: none;
+    color:black;
+}
+div.panel-body.ellipsis {
+    background-color: #fafafa;
+}
+div.panel-body.comment {
+    background-color: lightyellow;
+}
+div.myLogin {
+    padding: 8px;
+    margin-left: 20px;
+    list-style-type: none;
+}
+div.dbg-comment {
+    font-size: 60%;
+}

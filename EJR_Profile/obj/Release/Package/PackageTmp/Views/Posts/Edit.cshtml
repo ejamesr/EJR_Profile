@@ -1,0 +1,182 @@
+﻿@model EJR_Profile.Models.Post
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="primary-font">Edit</h3>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+                        <li class="active">Edit</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4">
+                <h6>Created: <i>@Html.Raw(Model.Created.ToLocalTime().ToString("F"))</i></h6>
+            </div>
+            <div class="col-sm-4">
+                @if (Model.Updated != null)
+                {
+                    <h6>
+                        Last updated:
+                        <i>
+                            @Html.Raw(Model.Updated.Value.ToLocalTime().ToString("F"))
+                        </i>
+                    </h6>
+                }
+                else
+                {
+                    <h6>
+                        <i>
+                            not yet updated
+                        </i>
+                    </h6>
+
+                }
+            </div>
+        </div>
+
+        @using (Html.BeginForm("Edit", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @* These are the fields we need to preserve as input, so hide them here *@
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.MediaURL)
+                @Html.HiddenFor(model => model.Created)
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Body, 7, 0, htmlAttributes: new { @class = "form-control", id = "rtfBody" })
+                        @*@Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Image Upload", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @{
+                            string myTitle = Model.MediaURL == null ? "Select an image to add to this post" : "Select a different image";
+                        }
+
+                        @*the name attribute is the important thing here - see controller method parameters*@
+                        <input type="file" id="fileUpload" name="fileUpload" class="btn btn-primary form-control"
+                               onchange="GotImage(this)" title=@myTitle />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @{
+            myTitle = "You can enter an image caption if desired";
+                    }
+                    @Html.LabelFor(model => model.MediaCaption, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MediaCaption, new { htmlAttributes = new { @class = "form-control", @title = @myTitle } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Published)
+                            @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.ActionLink("Back to List", "Index", new { @page = ViewBag.PageNumber })
+                    @*@Html.ActionLink("Back to List", "Index")*@
+                </div>
+                <div class="hidden">
+                    <input type="text" name="origPage" value=@ViewBag.PageNumber />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-default btn-blue">
+                        Save
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    @if (Model.MediaURL == null)
+                    {
+                        <img src="" id="MediaPic" height="200" class="img-responsive" alt="No image specified" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content(Model.MediaURL)" id="MediaPic" height="200" class="img-responsive" alt="No image specified" />
+                    }
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuBlog").addClass("active");
+        });
+
+        function GotImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#MediaPic")
+                        .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+    <script src="~/js/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "#rtfBody",
+            plugins: "image",
+            setup: function (ed) {
+
+                ed.on('init', function (evt) {
+                    $('#' + ed.id + '_path_row').hide();
+                });
+            }
+        });
+    </script>
+}

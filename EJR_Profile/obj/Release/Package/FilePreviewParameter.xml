@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ejamesr" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ejamesrADB-Web.config Connection String" description="" value="Data Source=tcp:mbmuw7kmu9.database.windows.net,1433;Initial Catalog=ejamesr_db;User Id=CoderFoundry@mbmuw7kmu9;Password=LearnToCode1" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ejamesrADB']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." value="Data Source=EJR-HP\SQLEXPRESS;&#xD;&#xA;         Initial Catalog=ejamesr_db;&#xD;&#xA;         Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ejame_000\\Documents\\Bootcamp\\Projects\\EJR_Profile\\EJR_Profile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

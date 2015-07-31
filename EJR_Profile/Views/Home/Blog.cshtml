@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Blog</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">Blog</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1>Nothing here to see yet!</h1>
+            <h2>Please move on...</h2>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            $(document).ready(function () {
+                $("main-menu").removeClass("active");
+                $("#menuBlog").addClass("active");
+            });
+        </script>
+    }
+</div>

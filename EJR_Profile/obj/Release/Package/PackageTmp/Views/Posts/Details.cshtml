@@ -1,0 +1,260 @@
+﻿@model EJR_Profile.Models.Post
+@* This is the way to create global variables that can be accessed in @helper methods... *@
+@functions
+{
+    private int anchorNum = 1;    // This can now be accessed in the @helper method
+    private string anchorName = "";
+}
+
+@{
+    ViewBag.Title = "Details";
+    
+    // Specify the maximum nesting levels, then enforce it!
+    int MAX_NESTING_LEVELS = 8;
+}
+@section NeedHover {
+    <link href="~/css/hover-min.css" rel="stylesheet" media="all">
+}
+
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-4">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Blog", "Index", "Posts")</li>
+                        <li class="active">Details</li>
+                    </ol>
+                </div>
+            </div>
+            @* Main content... *@
+            @if (Model.MediaURL != null)
+            {
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        @* Image goes here *@
+                        <img src="@Url.Content(Model.MediaURL)" height="400" class="img-responsive" />
+                    </div>
+                </div>
+                if (Model.MediaCaption != null)
+                {
+                    <div class="row center">
+                        @*display the caption*@
+                        <span class="date-created">
+                            @Html.DisplayFor(model => model.MediaCaption)
+                        </span>
+                    </div>
+
+                }
+            }
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <h1>
+                        @Html.DisplayFor(model => model.Title)
+                    </h1>
+                    @{
+                        var x = Model.Updated != null ? "" : " ~";
+                    }
+                    <h4>
+                        <i>by Eric J. Ruff</i> &nbsp;
+                        <span class="created-sm">~ Created: </span>
+                        <span class="date-sm">@Html.Raw(Model.Created.ToLocalTime().ToString("F"))@x</span>
+                        <span>
+                            @if (Model.Updated != null)
+                            {
+                                <span> &nbsp;</span>
+                                <span class="created-sm">Updated: </span>
+                                <span class="date-sm">@Html.Raw(Model.Updated.Value.ToLocalTime().ToString("F")) ~</span>
+                            }
+                        </span>
+                    </h4>
+                    <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10">
+                    @Html.Raw(Server.HtmlDecode(Model.Body))
+                </div>
+            </div>
+            <br />
+            @{
+                // Get list of comments, allow users to create and reply to comments
+
+                // Create incrementing anchor names, grab this id, to pass to Comments/Create
+                int anchorNum = 0;
+                int modelId = Model.Id;
+
+                // And create the anchor for this point...
+                string anchorName = "a" + anchorNum++;
+                <a name="@anchorName"></a>
+
+                // Grab all the undeleted comments
+                var comments = Model.Comments
+                    .Where(model => model.ParentCommentId == null && model.Deleted == false)
+                    //.OrderByDescending(d => d.Created)
+                    .OrderBy(d => d.Created)
+                    .ToList();
+
+                // Remeber whether there are any level-0 comments (commenting on the post, not on another comment)
+                int numC = comments.Count();
+
+                // This is how I finally figured out how to create a link with a custom URL
+                var route = new { id = modelId, anchor = anchorName, page = ViewBag.PageNumber };
+                //var route2 = new { id = c.PostId, anchor = anchorName, page = ViewBag.PageNumber, cid = c.Id };
+
+                // Now if no comments yet, show this link...
+                if (numC < 1)
+                {
+                    // No comments yet
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <br />
+                            <p>
+                                @Html.ActionLink("Be the first to comment on this post", "Create", "Comments",
+                                    route, new { @class = "btn btn-sm btn-color" })
+                            </p>
+                        </div>
+                        <div class="col-sm-5">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit post", "Edit", new { id = Model.Id, @page = ViewBag.PageNumber })
+                                <span> | </span>
+                            }
+                            @Html.ActionLink("Back to List", "Index", new { @page = ViewBag.PageNumber })
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-1">
+                            <p>
+                                @Html.ActionLink("Add another comment to this post", "Create", "Comments",
+                                    route, new { @class = "btn btn-sm btn-color" })
+                            </p>
+                        </div>
+                        <div class="col-sm-5">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                @Html.ActionLink("Edit post", "Edit", new { id = Model.Id, @page = ViewBag.PageNumber })
+                                <span> | </span>
+                            }
+                            @Html.ActionLink("Back to List", "Index", new { @page = ViewBag.PageNumber })
+                        </div>
+                    </div>
+                    // Now, call helper method to display all the comments
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1">
+                            @ShowComments(comments, 0)
+                        </div>
+                    </div>
+                }
+            }
+            <hr />
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit post", "Edit", new { id = Model.Id, @page = ViewBag.PageNumber })
+                        <span> | </span>
+                    }
+                    @Html.ActionLink("Back to List", "Index", new { @page = ViewBag.PageNumber })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@helper ShowComments(ICollection<EJR_Profile.Models.Comment> comments, int depth)
+{
+    int size = 12 - depth;
+    var curComments = comments
+    .Where(model =>model.Deleted == false)
+        //.OrderByDescending(d => d.Created)
+    .OrderBy(d => d.Created)
+    .ToList();
+    
+    // Now, display this comment, then display its subcomments (if any)
+    // Have comments, so list them and allow each to be commented upon
+    foreach (var c in curComments)
+    {
+        <div class="row">
+            <div class="col-sm-offset-@depth col-sm-@size ">
+                <hr />
+                @* Create a unique anchor point for each comment *@
+                @{
+                    anchorName = "a" + @anchorNum++;
+                }
+                <a name="@anchorName"></a>
+                <span class="created">Comment by </span>
+                <span class="date">@c.DisplayName</span>
+                <span class="created"> created </span>
+                <span class="date">
+                    @Html.Raw(c.Created.ToLocalTime().ToString("F"))
+                </span>
+
+                <div class="panel panel-default">
+                    <div class="panel-body comment">
+                        <p>
+                            @c.Body
+                        </p>
+                        @if (c.Updated != null)
+                        {
+                            <span class="created">Updated </span>
+                            <span class="created">
+                                @* In Razor, once we've confirmed the nullable string is NOT null, we can then
+                                    extract the .Value component and format as follows: *@
+                                @Html.Raw(c.Updated.Value.ToLocalTime().ToString("F"))</span>
+                            if (c.UpdateReason != null)
+                            {
+                                <span class="created">~ @c.UpdateReason</span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-offset-@depth col-sm-@size ">
+
+                @Html.ActionLink("Comment on this comment", "Create", "Comments",
+                    new { id = c.PostId, anchor = anchorName, page = ViewBag.PageNumber, cid = c.Id }, null)
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                {
+                    <span> | </span>
+                    @Html.ActionLink("Edit comment", "Edit", "Comments",
+                             new { id = c.PostId, anchor = anchorName, page = ViewBag.PageNumber, cid = c.Id }, null)
+                    <span> | </span>
+                    @Html.ActionLink("Delete comment", "Delete", "Comments",
+                             new { id = c.PostId, anchor = anchorName, page = ViewBag.PageNumber, cid = c.Id }, null)
+                }
+            </div>
+        </div>
+        if (User.IsInRole("Admin"))
+        { 
+            <div class="row">
+                <div class="col-sm-offset-@depth col-sm-@size dbg-comment">
+                    @* Show comment id, post, and parent id *@
+                    <i>PostID: @c.PostId, CommentId: @c.Id, Parent: @c.ParentCommentId, Level: @c.Level</i>
+                </div>
+            </div>
+        }
+    
+        // Now recursively show all comments for this comment
+        @ShowComments(c.Comments, depth+1)
+    }
+}
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuBlog").addClass("active");
+        });
+    </script>
+}

@@ -1,0 +1,377 @@
+﻿
+@{
+    ViewBag.Title = "Resume";
+}
+@section NeedHover {
+    <link href="~/css/hover-min.css" rel="stylesheet" media="all">
+}
+
+@*ToDo List
+
+    [ ] Ask Ashley
+
+        PowerQuest
+        http://www.deseretnews.com/article/815601/Ex-Novell-chief-named-chairman-of-PowerQuest.html?pg=all
+        Great summary (press release): http://www.thefreelibrary.com/PowerQuest+Signs+Tech+Data+to+Distribute+PartitionMagic-a018633029
+        Press release from Candice Steelman: https://groups.google.com/forum/#!topic/comp.os.os2.apps/TmO9yR0j_CQ
+        Symantec buys storage company PowerQuest: http://www.networkworld.com/article/2337070/data-center/symantec-buys-storage-company-powerquest.html
+        http://www.edgewaterfunds.com/symantec-completes-powerquest-acquisition/
+        http://www.internetnews.com/storage/article.php/3082131
+        Wikipedia: https://en.wikipedia.org/wiki/PowerQuest
+        http://www.symantec.com/about/news/release/article.jsp?prid=20030923_01
+
+        Inc. Magazine Listings
+        2000 Inc. 500 Index (#64): http://www.inc.com/magazine/20001015/20853.html
+        "Supersize" those fries!: http://www.inc.com/magazine/20001015/20758.html
+        PowerQuest: http://www.inc.com/profile/powerquest
+
+        Still fastest growing company (great quotes from me): http://www.thefreelibrary.com/PowerQuest+Still+Fastest+Growing+Company%3B+Latest+Award+Culminates+Big...-a057157915
+
+        Entrepreneur Magazine: http://www.entrepreneur.com/article/26600
+    https://en.wikipedia.org/wiki/PartitionMagic
+    https://en.wikipedia.org/wiki/Drive_Image_(software)
+    https://en.wikipedia.org/wiki/PowerQuest
+
+
+
+
+
+        PartitionMagic
+            On Linux: https://books.google.com/books?id=xBANKuFJWtUC&pg=PA29&dq=partitionmagic&hl=en&sa=X&ved=0CDgQ6AEwAmoVChMIj6O-vNfixgIVAkg-Ch1IOwey#v=onepage&q=partitionmagic&f=false
+            https://books.google.com/books?id=SdSbAgAAQBAJ&pg=PA122&dq=partitionmagic&hl=en&sa=X&ved=0CEQQ6AEwBGoVChMIj6O-vNfixgIVAkg-Ch1IOwey#v=onepage&q=partitionmagic&f=false
+            Lives up to its name: https://books.google.com/books?id=q60iT-ThpgMC&pg=PT54&dq=partitionmagic&hl=en&sa=X&ved=0CDAQ6AEwADgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+            4 min instead of 4 hrs; Unique, dazzling, and indispensable, PartitionMagic is a must-have program: https://books.google.com/books?id=E7p19YtI_Z4C&pg=PA56&dq=partitionmagic&hl=en&sa=X&ved=0CDsQ6AEwAjgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+            The most powerful and flexible disk management utility ever written: https://books.google.com/books?id=ZTmyTcu2h1EC&pg=PA61&dq=partitionmagic&hl=en&sa=X&ved=0CD8Q6AEwAzgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+            One ad: https://books.google.com/books?id=0gEAAAAAMBAJ&pg=PA51&dq=partitionmagic&hl=en&sa=X&ved=0CEgQ6AEwBTgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+            Another ad: https://books.google.com/books?id=2gEAAAAAMBAJ&pg=PT42&dq=partitionmagic&hl=en&sa=X&ved=0CEwQ6AEwBjgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+            One of first ads: https://books.google.com/books?id=7WGv1D0tOVYC&pg=RA1-PA286&dq=partitionmagic&hl=en&sa=X&ved=0CFYQ6AEwCTgUahUKEwi__dfc2uLGAhUDGj4KHV4JAAs#v=onepage&q=partitionmagic&f=false
+            Fun and scary ad (v 4.0): https://books.google.com/books?id=EgIAAAAAMBAJ&pg=PT36&dq=partitionmagic&hl=en&sa=X&ved=0CDQQ6AEwATgUahUKEwi__dfc2uLGAhUDGj4KHV4JAAs#v=onepage&q=partitionmagic&f=false
+            It's hard to do without: http://www.pcguide.com/ref/hdd/file/prog_PM.htm
+
+            "PartitionMagic does the job... with the solid reliability its users have learned to expect."
+            "PowerQuest's PartitionMagic 8.0 retains this utility's status as the most advanced and powerful
+             disk-partitioning and drive-management software."
+            https://books.google.com/books?id=31W89pbEshwC&pg=PA46&dq=partitionmagic&hl=en&sa=X&ved=0CFQQ6AEwCDgKahUKEwin_--Q2OLGAhWJGj4KHY9dAAs#v=onepage&q=partitionmagic&f=false
+
+
+            https://books.google.com/books?id=2wEAAAAAMBAJ&pg=PA31&dq=partitionmagic&hl=en&sa=X&ved=0CD4Q6AEwAzgUahUKEwi__dfc2uLGAhUDGj4KHV4JAAs#v=onepage&q=partitionmagic&f=false
+            https://books.google.com/books?id=SdSbAgAAQBAJ&pg=PA122&dq=partitionmagic&hl=en&sa=X&ved=0CEQQ6AEwBGoVChMIj6O-vNfixgIVAkg-Ch1IOwey#v=onepage&q=partitionmagic&f=false
+            https://books.google.com/books?id=2wEAAAAAMBAJ&pg=PA31&dq=partitionmagic&hl=en&sa=X&ved=0CD4Q6AEwAzgUahUKEwi__dfc2uLGAhUDGj4KHV4JAAs#v=onepage&q=partitionmagic&f=false
+            https://books.google.com/books?id=aToEAAAAMBAJ&pg=PA86&dq=partitionmagic+os/2+award&hl=en&sa=X&ved=0CD8Q6AEwA2oVChMIxaGl_93ixgIVwhg-Ch0VXgZg#v=onepage&q=partitionmagic%20os%2F2%20award&f=false
+
+
+        Drive Image / V2i
+        http://www.linux-mag.com/id/512/
+        https://mcpmag.com/articles/2004/01/01/powerquest-to-the-rescue.aspx
+        I shall use it often: http://rcmahq.nwark.com/nwapcug/dvimg4b0.htm
+
+
+
+
+
+*@
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Resume</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">Resume</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 animated slideInLeft">
+                <h2 class="headline first-child text-color">
+                    ERIC J. RUFF
+                </h2>
+
+                <p>Email <span class="sep"></span> ejames.ruff@gmail.com</p>
+                <div class="">
+                    <h2>OBJECTIVE</h2>
+                    <p>
+                        To secure an executive leadership position in a company where
+                        I can use my skills to help build a stellar team; to innovate and produce unique
+                        and compelling solutions; to implement failure-avoidance strategies to
+                        guarantee continual success; and to consistently exceed sales and marketing
+                        targets.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-4 animated slideInRight">
+                <div class="">
+                    <img style="width:300px;height:280px;" src="~/img/EricRuff-002.jpg" title="Married with 6 kids and 6 grandkids; Born a few year ago" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="animated slideInLeft">
+                    <div class="">
+                        <h2>
+                            EXECUTIVE BACKGROUND
+                        </h2>
+                        <p>
+                            I help companies grow quickly by helping design
+                            and build the development, sales and marketing strategies to deliver those
+                            solutions. I enjoy surrounding myself
+                            with people better than me; I let them do what they do best while I help
+                            eliminate weaknesses and improve strengths. I love to roll up my sleeves and
+                            help in development, customer service, marketing, or closing a deal. I
+                            understand intellectual-property issues and have been actively involved in over
+                            15 patent applications. I have
+                            <span>@Html.ActionLink("multiple U.S. and other patents", "IP", "Home")</span>
+                            issued in my name and others pending.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="animated slideInLeft ">
+                    <br />
+                    <div class="">
+                        <h2>WORK EXPERIENCE</h2>
+                        <h4>
+                            Private Consultant <span class="sep"></span>
+                            Provo, UT <span class="sep"></span> 2015 - present
+                        </h4>
+                        <p>
+                            Programming work for various local companies. Creating
+                            Java-based desktop applications, Google Docs API / Javascript
+                            programming.
+                        </p>
+
+                        <h4>
+                            NumberGun, LLC <span class="sep"></span> Salt Lake
+                            City, UT <span class="sep"></span> 2012 – present
+                        </h4>
+
+                        <p>
+                            Hi-tech software company. Positions held: co-founder, President/CEO,
+                            CTO, programmer. Created technology that offers substantial speed up of
+                            web-page rendering and text/numeric formatting processes. Technology still
+                            under development; multiple patents pending.
+                        </p>
+
+                        <h4>
+                            Private Consultant / Hiatus <span class="sep"></span> Pleasant
+                            Grove, UT <span class="sep"></span> 2010 – 13
+                        </h4>
+
+                        <p>
+                            Private consultant to local companies regarding growth
+                            strategies, patent litigation. Worked with Java, Alpha Five/Xbasic,
+                            C/C++, assembly language implementations.
+                        </p>
+
+                        <h4>QuicKutz, Inc. <span class="sep"></span> Orem, UT <span class="sep"></span> 2001–10</h4>
+
+                        <p>
+                            Scrapbooking company. Positions held: co-founder, CEO, President.
+                            Pioneered innovative, complex chemical-etching processes, other manufacturing
+                            innovations that reduced COGS by more than 75%. Architected hi-speed software solution (in C#) to
+                            manage digital designs.
+                        </p>
+
+                        <h4>PowerQuest Corporation <span class="sep"></span> Orem, UT <span class="sep"></span> 1993–2001</h4>
+
+                        <p>
+                            Hi-tech software company. Positions held: founder, CEO,
+                            President, CTO, software architect/programmer. Introduced <cite>PartitionMagic</cite>
+                            in 1995 and garnered the coveted Best of Comdex award. Also introduced
+                            <cite>ServerMagic</cite>, <cite>Drive Image</cite>, and <cite>DriveCopy</cite>.
+                        </p>
+                        <p>
+                            Company experienced meteoric revenue growth: $1.8 million in 1995 (first year
+                            of revenue); quadrupling to $8.3 million in 1996; tripling to $25.7 million in
+                            1997. Eventually reached $64 million in
+                            global revenues and employed over 400 individuals in Utah, Texas, London, and
+                            Munich.
+                        </p>
+                        <p>
+                            Received over 120 awards for company and its products; received
+                            <span>@Html.ActionLink("8 U.S. and other patents", "IP", "Home")</span> issued in my name.
+                            Helped successfully defend patents in
+                            litigation. Sold to Symantec Corporation in Dec 2003 for $150 million.
+                        </p>
+
+                        <h4><span>@Html.ActionLink("Gazelle Systems", "Gazelle")</span> <span class="sep"></span> Provo, UT <span class="sep"></span> 1985–93</h4>
+
+                        <p>
+                            Hi-tech software company. Positions held: founder, CEO,
+                            President, head of technology, programmer. Creator of
+                            <cite>Q-DOS</cite>, <cite>Back-It</cite>, and
+                            <cite>OPTune</cite>. Grew sales to $2.7 million. Sold in 1993.
+                        </p>
+
+                        <h4>
+                            <span class=SpellE>Delstar</span>
+                            Corporation <span class="sep"></span> Murray, UT <span class="sep"></span> 1984–85
+                        </h4>
+
+                        <p>
+                            Environmental-consulting firm. Positions held: controller,
+                            programmer.
+                        </p>
+
+                        <h4>Private Consultant <span class="sep"></span> Provo, UT <span class="sep"></span> 1983–84</h4>
+
+                        <p>
+                            Consultant for several companies. Projects included
+                            financial audits, bookkeeping/accounting, software development.
+                        </p>
+
+                        <h4>Target, Inc. <span class="sep"></span> San Ramon, CA <span class="sep"></span> 1982–83</h4>
+
+                        <p>
+                            Publishing company. Positions held: Junior Controller,
+                            Accounts Payable Supervisor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="animated slideInRight">
+                    <div class="">
+
+                        <h2>PERSONAL AWARDS</h2>
+
+                        <p>
+                            <em>Ernst &amp; Young Entrepreneur of the Year</em> (finalist,
+                            2007, Utah)
+                        </p>
+
+                        <p>
+                            <em>World Economic Forum Technology Pioneer</em> (2000, Davos
+                            Switzerland)
+                        </p>
+
+                        <p><em>Ernst &amp; Young Entrepreneur of the Year</em> (1998, Utah)</p>
+
+                        <p>
+                            <em>Utah Valley Entrepreneurial Forum Entrepreneur of the Year</em> (1995, Utah)
+                        </p>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="animated slideInRight">
+                    <div class="">
+                        <h2>COMPANY AWARDS</h2>
+                        <h4>Over 120 awards for PowerQuest, including the following:</h4>
+
+                        <p><em>Inc. 500 list</em> (2000, #64)</p>
+
+                        <p><em>Technology Fast 500</em> (1999, #8)</p>
+
+                        <p><em>Utah’s Fastest Growing Company</em> 2 years in a row (1999 &amp; 1998, Utah)</p>
+
+                        <p><em>Best of Show, Comdex/BYTE Magazine</em> (1995, for <cite>PartitionMagic</cite>)</p>
+
+                        <p>
+                            <em>Business of the Year / City of Orem</em> (1995, Orem Utah)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="animated slideInLeft">
+                    <div class="">
+                        <h2>ASSOCIATIONS</h2>
+                        <p>
+                            <h4 class="md">
+                                Member <span class="sep"></span> Utah Valley Entrepreneurial Forum <span class="sep"></span> 1992–01,
+                                2013–present
+                            </h4>
+                        </p>
+                        <p>
+                            <h4 class="md">
+                                Scoutmaster <span class="sep"></span> Pleasant Grove, UT <span class="sep"></span> 2006–08
+                            </h4>
+                        </p>
+                        <p>
+                            <h4 class="md">
+                                Board of Directors <span class="sep"></span> Commission for Economic Development
+                                of Orem - Business Incubator <span class="sep"></span> 1998–2001
+                            </h4>
+                        </p>
+                        <p>
+                            <h4 class="md">
+                                Scoutmaster / Venture Coach <span class="sep"></span> Orem, UT <span class="sep"></span> 1993–96
+                            </h4>
+                        </p>
+                        <p>
+                            <h4 class="md">
+                                Board member <span class="sep"></span> Utah Valley Entrepreneurial Forum <span class="sep"></span> 1992–94
+                            </h4>
+                        </p>
+                        <p>
+                            <h4 class="md">
+                                Volunteer representative for non-profit organization in
+                                Belgium and France <span class="sep"></span> 1976–1978
+                            </h4>
+                        </p>
+                        <br />
+                    </div>
+                </div>
+                <div class="animated slideInLeft">
+                    <div class="">
+                        <h2>FORMAL EDUCATION</h2>
+                        <p>
+                            <h4>B.S. Accounting <span class="sep"></span>
+                                <a target="_blank" href="http://home.byu.edu/home/">Brigham Young University</a>
+                            <span class="sep"></span> 1982</h4>
+                        </p>
+                        <br />
+                    </div>
+                </div>
+                <div class="animated slideInLeft">
+                    <div class="">
+                        <h2>INFORMAL EDUCATION</h2>
+                        <p>
+                            <h4>
+                                Software development
+                            </h4>
+                        </p>
+                        <p>
+                            Intel assembly language (FASM), C/C++, C#,
+                            Java, Google Docs API, JavaScript, HTML5, CSS3, Excel and VBA/macro programming, Alpha Five
+                            (database, Xbasic programming).
+                        </p>
+                        <p>
+                            <h4>
+                                Technologies
+                            </h4>
+                        </p>
+                        <p>
+                            Windows API, .NET, file systems, storage
+                            (hard drives, partitioning); Microsoft Office, OpenOffice, QuickBooks
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hvr-grow-shadow">
+            <p><i><span style='font-size:8.0pt'>Updated: 21 July 2015</span></i></p>
+        </div>
+    </div>
+</div> <!-- wrapper -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuResume").addClass("active");
+        });
+    </script>
+}
+
+

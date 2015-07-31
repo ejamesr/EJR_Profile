@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Portfolio";
+}
+@section NeedHover {
+    <link href="~/css/hover-min.css" rel="stylesheet" media="all">
+}
+
+    <!-- Wrapper -->
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">Portfolio</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">Portfolio</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="headline first-child text-color">
+                    <span class="border-color">My Portfolio</span>
+                </h2>
+            </div>
+        </div>
+        <ul class="row list-inline glr-list-p">
+            <li class="col-sm-4">
+                <div class="portfolio-item center hvr-float-shadow">
+                    <a href="@Url.Action("JS_Exercises", "Home")">
+                        <img src="~/img/Apps-File-Javascript-icon.png" height="250" class=" hvr-float-shadow" />
+                            <h1>JavaScript Exercises</h1>
+                        <div class="mask sr-only">
+                            by Eric <span><i class="fa fa-heart"></i> 12 <i class="fa fa-comments-o"></i> 24</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="col-sm-4">
+                <div class="portfolio-item center hvr-buzz">
+                    <a href="@Url.Action("ComingSoon", "Home")">
+                        <img src="~/img/Apps-File-Javascript-icon.png" height="250" />
+                            <h1>Coding for Performance</h1>
+                        <div class="mask sr-only">
+                            by Eric <span><i class="fa fa-heart"></i> 145 <i class="fa fa-comments-o"></i> 24</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+            <li class="clearfix jquery"></li>
+        </ul>
+    </div> <!-- / .container -->
+</div> <!-- / .wrapper -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuPortfolio").addClass("active");
+        });
+    </script>
+}
+
+

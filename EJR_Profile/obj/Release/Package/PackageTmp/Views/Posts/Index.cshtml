@@ -1,0 +1,229 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<EJR_Profile.Models.Post>
+@*@model IEnumerable<EJR_Profile.Models.Post>*@
+
+@{
+    ViewBag.Title = "Index to My Blogs";
+}
+@section NeedHover {
+    <link href="~/css/hover-min.css" rel="stylesheet" media="all">
+}
+
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">My Blogs</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">Blog</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        @*<span class="glyphicon glyphicon-plus"></span>*@
+                        @Html.ActionLink("+ Create New Blog Post", "Create", "Posts",
+                        new { page = ViewBag.PageNumber }, new { @class = "btn btn-sm btn-color" })
+                    </p>
+                </div>
+            </div>
+        }
+
+        @*Display the data*@
+        @{ bool showHr = false; }
+
+        @if (ViewBag.nEntries == 0)
+        {
+            // Need some type of display when there are no entries
+            <br /><br /><br /><br /><br />
+            <div class="row center">
+                <h1>Sorry, no blog entries yet...</h1>
+                <h2>(Somebody, please ask Eric to post some entries now!)</h2>
+            </div>
+            <br /><br /><br /><br /><br />
+        }
+        else
+        {
+            <div class="row center">
+                <h1><i>Eric's Blog</i></h1>
+            </div>
+            using (Html.BeginForm("Index", "Posts", new { id = 5 }))
+            {
+                <div class="row center">
+                    <input type="text" id="searchStr" name="searchStr" size="20" value=""
+                           placeholder="Enter search string" />
+                    <button type="submit" class="btn btn-blue" id="searchBox" onclick="DoSearch()" value="">Search</button>
+                    <button class="btn btn-blue" onclick="ResetSearch()">X</button>
+                </div>
+            }
+
+            foreach (var item in Model)
+            {
+                if (showHr)
+                {
+                    <hr class="row-date" />
+                }
+                showHr = true;
+                <div class="row">
+                    @{
+                        var colWidth = item.MediaURL == null ? 11 : 9;
+                        if (!User.IsInRole("Admin"))
+                        {
+                            colWidth++; // Don't need to show Edit/Delete, so make size one column bigger
+                        }
+                    }
+                    <div class="col-sm-@colWidth">
+                        <h3>
+                            <a class="hvr-underline-from-center" href=@Url.Action("Details", "Posts", new { id = item.Id, page = ViewBag.PageNumber })>
+                                <img src="~/img/blog-icon.gif" height="28" />
+                            </a>
+                            <a class="hvr-underline-from-center" href=@Url.Action("Details", "Posts", new { id = item.Id, page = ViewBag.PageNumber })>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </a>
+                        </h3>
+                        <div class="panel panel-default">
+                            <div class="panel-body ellipsis slug">
+                                <a class="no-decoration" href=@Url.Action("Details", "Posts", new { id = item.Id, page = ViewBag.PageNumber })>
+                                    @Html.Raw(Server.HtmlDecode(item.Body))
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @if (item.MediaURL != null)
+                    {
+                        <div class="col-sm-2">
+                            <p></p>
+                            <div class="row">
+                                <a class="no-decoration" href=@Url.Action("Details", "Posts", new { id = item.Id, page = ViewBag.PageNumber })>
+                                    <img src="@Url.Content(item.MediaURL)" height="50" class="img-responsive hvr-grow" />
+                                </a>
+                            </div>
+                            @if (item.MediaCaption != null)
+                            {
+                                <div class="row center">
+                                    @*display the caption*@
+                                    <span class="date-sm">
+                                        @Html.DisplayFor(modelItem => item.MediaCaption)
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <p></p>
+                        <div class="col-sm-1">
+                            @* <-- Edit, Details, Delete *@
+                            <div class="row">
+                                &nbsp; @Html.ActionLink("Edit", "Edit", routeValues: new { id = item.Id, page = ViewBag.PageNumber })
+                            </div>
+                            <div class="row">
+                                &nbsp; @Html.ActionLink("Delete", "Delete", new { id = item.Id, page = ViewBag.PageNumber })
+                            </div>
+                        </div>@* <-- Edit, Details, Delete *@
+                    }
+
+                    </div>
+                    <div class="row row-date">
+                        @* Date row... *@
+                        <div class="col-sm-8">
+
+                            @if (item.Updated == null)
+                            {
+                                // No updated date
+                                <span class="created">
+                                    Created:
+                                </span>
+                                <span class="date">
+                                    @Html.Raw(item.Created.ToLocalTime().ToString("F"))
+                                </span>
+                            }
+                            else
+                            {
+                                // Has updated date...
+                                <div class="col-sm-6">
+                                    <span class="created">
+                                        Created:
+                                    </span>
+                                    <span class="date">
+                                        @Html.Raw(item.Created.ToLocalTime().ToString("F"))
+                                    </span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <span class="created">
+                                        Updated:
+                                    </span>
+                                    <span class="date">
+                                        @* In Razor, once we've confirmed the nullable string is NOT null, we can then
+                                            extract the .Value component and format as follows: *@
+                                        @Html.Raw(item.Updated == null ? "" : item.Updated.Value.ToLocalTime().ToString("F"))
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    </div>@* Date row... *@
+                            // If any comments, display count
+                            var numComments = item.Comments.Where(model => model.Deleted == false).Count();
+                            if (numComments != null)
+                            {
+                                if (numComments == 1)
+                                {
+                                    <span class="created">1 comment</span>
+                                }
+                                else if (numComments > 1)
+                                {
+                                    <span class="created">@numComments comments</span>
+                                }
+                            }
+            }
+            <br />
+            <div class="row">
+                <div class="col-sm-12">
+                    Page @(Model.PageCount < Model.PageNumber ?
+                        (Model.PageCount < 2 ? 1 : Model.PageCount) : Model.PageNumber)
+                    of @(Model.PageCount < 2 ? 1 : Model.PageCount)
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function ResetSearch() {
+        $('#searchStr').val('');
+    }
+</script>
+
+
+
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("main-menu").removeClass("active");
+            $("#menuBlog").addClass("active");
+
+            $(".ellipsis").dotdotdot({
+                /*	Whether to update the ellipsis: true/'window' */
+                watch: "window",
+                ellipsis: '... ',
+                wrap: 'word',
+                height: 50
+            });
+        });
+    </script>
+}
+
