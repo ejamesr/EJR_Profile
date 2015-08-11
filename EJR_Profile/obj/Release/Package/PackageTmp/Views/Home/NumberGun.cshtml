@@ -1,7 +1,152 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "NumberGun";
 }
 
-<h2>NumberGun</h2>
+<div class="wrapper">
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="primary-font">NumberGun</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li>@Html.ActionLink("Gazelle Systems", "Gazelle", "Home")</li>
+                        <li>@Html.ActionLink("PowerQuest", "PowerQuest", "Home")</li>
+                        <li class="active">NumberGun</li>
+                        <li>@Html.ActionLink("Awards", "Awards", "Home")</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+
+                <h1>NumberGun</h1>
+                <p>
+                    Over my many years of programming, there has always been
+                    one aspect that bothered me: printing floating-point numbers was too complex or too slow. And it
+                    was difficult to use the various tools and libraries to format these numbers with commas to make
+                    them more readable. And every program I worked on eventually created a view or display that
+                    included numbers, all of which had to be converted from the computer's internal format into
+                    a human-readable format.
+                </p>
+                <p>
+                    So this was a big issue. I decided to find a better, faster way to work with numbers. And after
+                    quite a bit of sleuthing and hard work, I found that my code, in assembly language, was converting
+                    numbers from binary to text (ASCII, Unicode, etc.) from 10x to 50x faster than the core libraries I was using in
+                    Microsoft's Visual Studio&reg; solution. And the speed differential appears constant as I've compared my code against
+                    Visual Studio 2013.
+                </p>
+                <p>
+                    There are several patents pending on new technologies created during my time at NumberGun, LLC.
+                    A couple have been published and are @Html.ActionLink("listed on my IP page", "IP"). Here is a summary list of some
+                    of the technologies; note that the slowest of these is still around 6x faster than
+                    the fastest alternatives, and some are 50x faster:
+                </p>
+                <ul>
+                    <li>
+                        Convert 32- and 64-bit floating-point numbers to text (with or without commas). 
+                        Algorithms can be adapted to 128-bit and larger numbers.
+                    </li>
+                    <li>
+                        Convert 8-, 16-, 32-, and 64-bit integers (signed or unsigned) to text (with or without commas).
+                    </li>
+                    <li>
+                        Convert numbers from text into any size integer (signed or unsigned) or floating point.
+                    </li>
+                    <li>
+                        Aggregate and convert numbers and strings into desired output format (comma-formatted numbers,
+                        date/time formats, IP address formats, etc.). Includes an internally
+                        compiled version for even greater throughput.
+                    </li>
+                    <li>
+                        A replacement for the 'sprintf' function that is 100% compatible with Visual Studio's 'sprintf'
+                        and includes extensions that allow easily comma formatting of numbers.
+                    </li>
+                    <li>
+                        Base64 encoding and decoding 
+                    </li>
+                    <li>
+                        Other related technologies
+                    </li>
+                </ul>
+                <h3>Applications</h3>
+                <p>
+                    These new technologies can reduce the time required to render web pages, create reports,
+                    and produce log files. In some situations, converting binary information into strings
+                    can be made 10x to 15x faster, improving overall throughput.  Here is a list of some
+                    applications:
+                    <ul>
+                        <li>
+                            Create HTML text strings 
+                        </li>
+                        <li>
+                            Extract and convert numeric text strings into binary format
+                        </li>
+                        <li>
+                            Improves responsiveness of hand-held devices and desktop displays
+                        </li>
+                        <li>
+                            Increase video frame rates by making available more CPU clock cycles
+                            to execute your custom algorithms, processes, and special effects
+                        </li>
+                        <li>
+                            Financial reporting becomes faster, reducing bottleneck of converting data into
+                            human-readable form
+                        </li>
+                        <li>
+                            Creating log files
+                        </li>
+                        <li>
+                            Converting log-file information back to binary format
+                        </li>
+                    </ul>
+                    <h3>Summary</h3>
+                    <p>
+                        Demos and test applications for some of these technologies 
+                        will be available in late 2015.
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function CustomAlert(title_msg, output_msg)
+    {
+        if (!title_msg)
+            title_msg = 'Alert';
+
+        if (!output_msg)
+            output_msg = 'No Message to Display.';
+
+
+        $("<div></div>").html(output_msg).dialog({
+            title: title_msg,
+            resizable: false,
+            modal: true,
+            position: 'd',
+            buttons: {
+                "Ok": function()
+                {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    }
+    function SigSchreyer() {
+        var d = $(".ui-dialog").position();
+        alert("Testing...");
+        window.scrollTo(d.left, d.top).("#Sig").dialog("open"); return false;
+        //window.scrollTo(d.left, d.top);
+        document.getElementById("Sig").showModal();
+    }
+
+
+</script>
+
 

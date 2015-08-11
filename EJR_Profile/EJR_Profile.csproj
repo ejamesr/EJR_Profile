@@ -235,6 +235,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="help-answer.html" />
     <Content Include="help-center.html" />
+    <Content Include="img\AF_Home_2005.JPG" />
     <Content Include="img\Apps-File-Javascript-icon.png" />
     <Content Include="img\arrow.png" />
     <Content Include="img\bg-1.jpg" />
@@ -244,6 +245,7 @@
     <Content Include="img\browser-cut.png" />
     <Content Include="img\browser.png" />
     <Content Include="img\christus_statue.jpg" />
+    <Content Include="img\ClearingLot.jpg" />
     <Content Include="img\close.png" />
     <Content Include="img\CoderFoundry.png" />
     <Content Include="img\dog.jpg" />
@@ -271,6 +273,7 @@
     <Content Include="img\blog-icon.gif" />
     <Content Include="img\ruff0012.jpg" />
     <Content Include="img\ruff0166.jpg" />
+    <Content Include="img\SanFrancisco.JPG" />
     <Content Include="img\slide-1.jpg" />
     <Content Include="img\slide-2.jpg" />
     <Content Include="img\slide-3.jpg" />
@@ -516,6 +519,7 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\Home\Awards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

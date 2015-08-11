@@ -30,12 +30,19 @@
                     <div class="jumbotron second">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <h1 class="text-center animated fadeInDown">Take a Look at My Portfolio</h1>
-                                    <p class="lead text-center animated fadeInDown delay-1">I try to under-promise and over-deliver.</p>
+                                <div class="col-sm-6">
+                                    <h1 class="text-center animated fadeInDown"><br />Check out My Portfolio</h1>
+                                    <p class="lead text-center animated fadeInDown delay-1">I love to architect, to build things.</p>
                                     <p class="lead text-center animated fadeInDown delay-1">
                                         @Html.ActionLink("My Portfolio", "Portfolio", "Home", new { @class = "btn btn-color text-center lead animated slideInLeft delay-2" })
                                     </p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="video hidden-xs">
+                                        <div class="flex-video">
+                                            <iframe src="//player.vimeo.com/video/134430492" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,29 +57,6 @@
                                     <h1 class="animated slideInLeft">Are You the Right Company?<br />I'm Looking for a Job</h1>
                                     <p class="lead animated slideInLeft delay-1">Check out my video<br />and peruse this site.</p>
                                     @Html.ActionLink("Contact me", "ContactMe", "Home", new { @class = "btn btn-color animated slideInLeft delay-2" })
-                                </div>
-                                <div class="col-sm-6">
-                                    @*<h1>[ Placeholder for video ]</h1>*@
-                                    @*<div class="video hidden-xs">*@
-                                    @*<div class="video">
-                                        <!-- 4:3 aspect ratio -->
-                                        <div class="flex-video">
-                                            <div class="embed-responsive embed-responsive-4by3" auto-play="false">
-                                                <iframe class="embed-responsive-item" src="~/img/EJR.mp4"></iframe>
-                                            </div>
-                                        </div>
-                                        <video controls >
-                                            <source src="~/img/EJR.mp4" type="video/mp4">
-                                        </video>
-
-
-                                        <div class="flex-video">
-                                            <video controls="controls">
-                                                <source src="~/img/EJR.mp4" type="video/mp4" />
-                                            </video>
-                                            <iframe src="//player.vimeo.com/video/67449472" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                                        </div>
-                                    </div>*@
                                 </div>
                             </div>
                         </div>

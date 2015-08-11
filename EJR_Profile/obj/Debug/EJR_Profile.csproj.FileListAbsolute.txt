@@ -68,4 +68,3 @@ C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\bin\Micro
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Debug\EJR_Profile.dll
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Debug\EJR_Profile.pdb
-C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Debug\EJR_Profile.csprojResolveAssemblyReference.cache

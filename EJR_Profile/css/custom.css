@@ -720,16 +720,16 @@ footer h3 > span {
 	margin-top: -20px;
 }
 .jumbotron.first {
-	background: url(../img/slide-1.jpg) no-repeat center center;
-	background-size: cover;
+    background: url('../img/SanFrancisco.JPG') no-repeat center center;
+    background-size: cover;
 }
 .jumbotron.second {
-	background: url(../img/slide-2.jpg) no-repeat center center;
+	background: url('../img/AF_Home_2005.JPG') no-repeat center center;
 	background-size: cover;
 }
 .jumbotron.third {
-	background: url(../img/slide-3.jpg) no-repeat center center;
-	background-size: cover;
+    background: url('../img/ClearingLot.jpg') no-repeat center center;
+    background-size: cover;
 }
 .jumbotron {
 	width: 100%;
@@ -745,7 +745,8 @@ footer h3 > span {
 	font-size: 36px;
 	line-height: 1.5;
 	margin-bottom: 20px;
-	text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+	text-shadow: 2px 2px 4px rgba(0,0,0,1.0);
+    color: brown;
 }
 .jumbotron.first img {
 	width: 90%;
@@ -779,7 +780,8 @@ footer h3 > span {
 	}
 }
 .jumbotron .lead {
-	text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+	text-shadow: 2px 2px 18px #000000;
+    color: antiquewhite;
 }
 .jumbotron .btn {
 	font-size: 18px;

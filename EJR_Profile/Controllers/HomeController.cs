@@ -16,6 +16,11 @@ namespace EJR_Profile.Controllers
             return View();
         }
 
+        public ActionResult Awards()
+        {
+            return View();
+        }
+
         public ActionResult Blog()
         {
             ViewBag.Message = "Your application description page.";
