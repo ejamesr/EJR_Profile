@@ -69,3 +69,5 @@ C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\bin\Micro
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Release\EJR_Profile.csprojResolveAssemblyReference.cache
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Release\EJR_Profile.dll
 C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Release\EJR_Profile.pdb
+C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Release\EJR_Profile.Migrations.InitialMigrations.resources
+C:\Users\ejame_000\Documents\Bootcamp\Projects\EJR_Profile\EJR_Profile\obj\Release\EJR_Profile.csproj.GenerateResource.Cache
