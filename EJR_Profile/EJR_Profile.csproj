@@ -248,6 +248,7 @@
     <Content Include="img\blog\dogs.jpg" />
     <Content Include="img\browser-cut.png" />
     <Content Include="img\browser.png" />
+    <Content Include="img\CarFinder.PNG" />
     <Content Include="img\christus_statue.jpg" />
     <Content Include="img\ClearingLot.jpg" />
     <Content Include="img\close.png" />
@@ -258,7 +259,9 @@
     <Content Include="img\EJR.mp4" />
     <Content Include="img\EricRuff-002.jpg" />
     <Content Include="img\EricRuff.jpg" />
+    <Content Include="img\EY_EntOfYear.PNG" />
     <Content Include="img\favicon.png" />
+    <Content Include="img\GazelleSystems.PNG" />
     <Content Include="img\general-1.jpg" />
     <Content Include="img\general-2.jpg" />
     <Content Include="img\general-3.jpg" />
@@ -267,9 +270,11 @@
     <Content Include="img\imdb.ico" />
     <Content Include="img\loading.gif" />
     <Content Include="img\next.png" />
+    <Content Include="img\NumberGun.PNG" />
     <Content Include="img\photo-1.jpg" />
     <Content Include="img\photo-2.jpg" />
     <Content Include="img\photo-3.jpg" />
+    <Content Include="img\PowerQuest.PNG" />
     <Content Include="img\prev.png" />
     <Content Include="img\product-1.jpg" />
     <Content Include="img\product-2.jpg" />
@@ -286,6 +291,7 @@
     <Content Include="img\thumbnail-2.jpg" />
     <Content Include="img\thumbnail-3.jpg" />
     <Content Include="img\thumbnail-4.jpg" />
+    <Content Include="img\TransparentAardvark.gif" />
     <Content Include="index.html" />
     <Content Include="isotope\css\style.css" />
     <Content Include="isotope\js\fake-element.js" />
