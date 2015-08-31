@@ -48,7 +48,7 @@ namespace EJR_Profile.Models
         // ejamesrADB           - on website
         //
         public ApplicationDbContext()
-            : base("ejamesrADB", throwIfV1Schema: false)
+            : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
