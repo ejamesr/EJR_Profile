@@ -27,71 +27,117 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
-                <h3 class="headline first-child text-color">
-                    <span class="border-color">JavaScript Exercises</span>
-                </h3>
+            <div class="col-xs-4">
+                <div class="row">
+                    <h3 class="headline first-child text-color">
+                        <span class="border-color" title="These are exercises I created the first week at CoderFoundry Bootcamp Jul-Sep 2015">
+                            JS Exercises
+                        </span>
+                    </h3>
+                </div>
+                <div class="row">
+                    <ul class="row list-inline glr-list-p">
+                        <li class="col-xs-12">
+                            <div class="portfolio-item center hvr-float-shadow">
+                                <a href="@Url.Action("JS_Exercises", "Home")">
+                                    <img src="~/img/Apps-File-Javascript-icon.png" height="125" class=" hvr-float-shadow" />
+                                    <h5>12 JavaScript Exercises</h5>
+                                    <div class="mask sr-only">
+                                        by Eric <span><i class="fa fa-heart"></i> 12 <i class="fa fa-comments-o"></i> 24</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        @*<li class="col-sm-6">
+                            <div class="portfolio-item center hvr-buzz">
+                                <a href="@Url.Action("ComingSoon", "Home")">
+                                    <img src="~/img/Apps-File-Javascript-icon.png" height="125" />
+                                    <h5>Coding for Performance</h5>
+                                    <div class="mask sr-only">
+                                        by Eric <span><i class="fa fa-heart"></i> 145 <i class="fa fa-comments-o"></i> 24</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>*@
+                        <li class="clearfix jquery"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-7 col-xs-offset-1">
+                <div class="row">
+                    <h3 class="headline first-child text-color">
+                        <span class="border-color" title="These are projects I created while at CoderFoundry Bootcamp Jul-Sep 2015">
+                            Mid-term Projects
+                        </span>
+                    </h3>
+                </div>
+                <div class="row">
+                    <ul class="row list-inline glr-list-p">
+                        <li class="col-sm-6">
+                            <div class="portfolio-item center hvr-float-shadow">
+                                <a href="http://aardvark-ejr.azurewebsites.net/" target="_blank">
+                                    <img src="~/img/TransparentAardvark.gif" height="125" />
+                                    <h5>Aardvark Bug Tracker</h5>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="col-sm-6">
+                            <div class="portfolio-item center hvr-float-shadow">
+                                <a href="http://ejr-carfinder.azurewebsites.net/" target="_blank">
+                                    <img src="~/img/CarFinder.PNG" height="125" />
+                                    <h5>Car Finder</h5>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="clearfix jquery"></li>
+                    </ul>
+                </div>
+
             </div>
         </div>
-        <ul class="row list-inline glr-list-p">
-            <li class="col-sm-4">
-                <div class="portfolio-item center hvr-float-shadow">
-                    <a href="@Url.Action("JS_Exercises", "Home")">
-                        <img src="~/img/Apps-File-Javascript-icon.png" height="125" class=" hvr-float-shadow" />
-                            <h4>JavaScript Exercises</h4>
-                        <div class="mask sr-only">
-                            by Eric <span><i class="fa fa-heart"></i> 12 <i class="fa fa-comments-o"></i> 24</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li class="col-sm-4">
-                <div class="portfolio-item center hvr-buzz">
-                    <a href="@Url.Action("ComingSoon", "Home")">
-                        <img src="~/img/Apps-File-Javascript-icon.png" height="125" />
-                            <h4>Coding for Performance</h4>
-                        <div class="mask sr-only">
-                            by Eric <span><i class="fa fa-heart"></i> 145 <i class="fa fa-comments-o"></i> 24</span>
-                        </div>
-                    </a>
-                </div>
-            </li>
-            <li class="clearfix jquery"></li>
-        </ul>
 
         <div class="row">
             <div class="col-xs-12">
-                <h3 class="headline first-child text-color">
-                    <span class="border-color">My Software Companies</span>
-                </h3>
+                <div class="row">
+                    <h3 class="headline first-child text-color">
+                        <span class="border-color" title="These are companies I founded, plus various awards (mostly from PowerQuest)">
+                            My Software Companies & Awards
+                        </span>
+                    </h3>
+                </div>
             </div>
         </div>
         <ul class="row list-inline glr-list-p">
-            <li class="col-sm-3">
+            <li class="col-sm-3 gazelle">
                 <div class="portfolio-item center hvr-float-shadow">
                     <a href="@Url.Action("Gazelle", "Home")">
-                        <h3>Gazelle Systems</h3>
+                        <img src="~/img/GazelleSystems.PNG" />
+                        <h4>Gazelle Systems</h4>
                     </a>
                 </div>
             </li>
             <li class="col-sm-3">
                 <div class="portfolio-item center hvr-float-shadow">
                     <a href="@Url.Action("PowerQuest", "Home")">
-                        <h3>PowerQuest</h3>
+                        <img src="~/img/PowerQuest.PNG" width="200"/>
+                        <h4>PowerQuest</h4>
                     </a>
                 </div>
             </li>
-            <li class="col-sm-3">
+            <li class="col-sm-3 numbergun">
                 <div class="portfolio-item center hvr-float-shadow">
                     <a href="@Url.Action("NumberGun", "Home")">
-                        <h3>NumberGun</h3>
+                        <img src="~/img/NumberGun.PNG" width="200"/>
+                        <h4>NumberGun</h4>
                     </a>
                 </div>
             </li>
-            <li class="col-sm-3">
+            <li class="col-sm-3 personal">
                 <div class="portfolio-item center hvr-float-shadow">
                     <a href="@Url.Action("Awards", "Home")">
-                        <h3>Personal Awards</h3>
+                        <img src="~/img/EY_EntOfYear.PNG" width="200"/>
+                        <h4>Personal Awards</h4>
                     </a>
                 </div>
             </li>

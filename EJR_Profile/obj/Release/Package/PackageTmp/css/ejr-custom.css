@@ -83,3 +83,12 @@ div.myLogin {
 div.dbg-comment {
     font-size: 60%;
 }
+ul > li.gazelle {
+    margin-top: 72px;
+}
+ul > li.numbergun {
+    margin-top: 47px;
+}
+ul > li.personal {
+    margin-top: 37px;
+}
